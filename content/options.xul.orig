@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://quickjava/skin/quickjava.css" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://quickjava/locale/quickjava.dtd">
+
+<prefwindow id="quickjava-prefs"
+	title="&quickjava.options.title;"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<prefpane id="quickjava-pref-pane">
+		<script type="application/x-javascript" src="chrome://quickjava/content/browserOverlay.js" />
+		<preferences>
+			<preference id="thatoneguydotnet_quickjava_pref_hidestatus_javascript"	name="thatoneguydotnet.QuickJava.hidestatus.JavaScript"			type="bool"/>
+			<preference id="thatoneguydotnet_quickjava_pref_hidestatus_java"				name="thatoneguydotnet.QuickJava.hidestatus.Java"						type="bool"/>
+			<preference id="thatoneguydotnet_quickjava_pref_hidestatus_flash"				name="thatoneguydotnet.QuickJava.hidestatus.Flash"					type="bool"/>
+			<preference id="thatoneguydotnet_quickjava_pref_hidestatus_silverlight"	name="thatoneguydotnet.QuickJava.hidestatus.Silverlight"		type="bool"/>
+			<preference id="thatoneguydotnet_quickjava_pref_hidestatus_animage"			name="thatoneguydotnet.QuickJava.hidestatus.AnimatedImage"	type="bool"/>
+			<preference id="thatoneguydotnet_quickjava_pref_hidestatus_cookies"			name="thatoneguydotnet.QuickJava.hidestatus.Cookies"				type="bool"/>
+			<preference id="thatoneguydotnet_quickjava_pref_hidestatus_images"			name="thatoneguydotnet.QuickJava.hidestatus.Images"					type="bool"/>
+			<preference id="thatoneguydotnet_quickjava_pref_hidestatus_css"					name="thatoneguydotnet.QuickJava.hidestatus.CSS"						type="bool"/>
+			<preference id="thatoneguydotnet_quickjava_pref_hidestatus_proxy"				name="thatoneguydotnet.QuickJava.hidestatus.Proxy"					type="bool"/>
+			
+			<preference id="thatoneguydotnet_quickjava_pref_regex_Java"							name="thatoneguydotnet.QuickJava.regex.Java"								type="string"/>
+			<preference id="thatoneguydotnet_quickjava_pref_regex_Flash"						name="thatoneguydotnet.QuickJava.regex.Flash"								type="string"/>
+			<preference id="thatoneguydotnet_quickjava_pref_regex_Silverlight"			name="thatoneguydotnet.QuickJava.regex.Silverlight"					type="string"/>
+		</preferences>
+		<groupbox>
+			<vbox>
+				<hbox>
+					<groupbox>
+						<caption  label="&quickjava.options.statusbargroup;" />
+						<checkbox label="&quickjava.options.hide.javascript;"		preference="thatoneguydotnet_quickjava_pref_hidestatus_javascript"	id="hidestatus_javascript_cb" />
+						<checkbox label="&quickjava.options.hide.java;"					preference="thatoneguydotnet_quickjava_pref_hidestatus_java"				id="hidestatus_java_cb" />
+						<checkbox label="&quickjava.options.hide.flash;"				preference="thatoneguydotnet_quickjava_pref_hidestatus_flash"				id="hidestatus_flash_cb" />
+						<checkbox label="&quickjava.options.hide.silverlight;"	preference="thatoneguydotnet_quickjava_pref_hidestatus_silverlight"	id="hidestatus_silverlight_cb" />
+						<checkbox label="&quickjava.options.hide.animage;"			preference="thatoneguydotnet_quickjava_pref_hidestatus_animage"			id="hidestatus_animage_cb" />
+						<checkbox label="&quickjava.options.hide.cookies;"			preference="thatoneguydotnet_quickjava_pref_hidestatus_cookies"			id="hidestatus_cookies_cb" />
+						<checkbox label="&quickjava.options.hide.images;"				preference="thatoneguydotnet_quickjava_pref_hidestatus_images"			id="hidestatus_images_cb" />
+						<checkbox label="&quickjava.options.hide.css;"					preference="thatoneguydotnet_quickjava_pref_hidestatus_css"					id="hidestatus_css_cb" />
+						<checkbox label="&quickjava.options.hide.proxy;"				preference="thatoneguydotnet_quickjava_pref_hidestatus_proxy"				id="hidestatus_proxy_cb" />
+					</groupbox>
+					<spacer width="25px" />
+					<groupbox width="300px">
+                                           <caption label="Other" />
+					</groupbox>
+				</hbox>
+				<hbox>
+					<groupbox>
+						<caption label="&quickjava.options.advancedsettings;" />
+						<grid>
+							<columns>
+								<column flex="1"/>
+								<column flex="2"/>
+								<column flex="3"/>
+							</columns>
+							<rows>
+								<row>
+									<label value="&quickjava.java;" id="regex_java_lbl" />
+									<textbox width="400px" preference="thatoneguydotnet_quickjava_pref_regex_Java" id="t1g_quickjava_regex_tb_Java" />
+									<button label="&quickjava.reset;" id="regex_java_reset" oncommand="thatoneguydotnet.QuickJava.reset_pref_click(event, thatoneguydotnet.QuickJava.qj_J);" />
+								</row>
+								<row>
+									<label value="&quickjava.flash;" id="regex_flash_lbl" />
+									<textbox width="400px" preference="thatoneguydotnet_quickjava_pref_regex_Flash" id="t1g_quickjava_regex_tb_Flash" />
+									<button label="&quickjava.reset;" id="regex_flash_reset" oncommand="thatoneguydotnet.QuickJava.reset_pref_click(event, thatoneguydotnet.QuickJava.qj_F);" />
+								</row>
+								<row>
+									<label value="&quickjava.silverlight;" id="regex_silverlight_lbl" />
+									<textbox width="400px" preference="thatoneguydotnet_quickjava_pref_regex_Silverlight" id="t1g_quickjava_regex_tb_Silverlight" />
+									<button label="&quickjava.reset;" id="regex_silverlight_reset" oncommand="thatoneguydotnet.QuickJava.reset_pref_click(event, thatoneguydotnet.QuickJava.qj_SL);" />
+								</row>
+							</rows>
+						</grid>
+					</groupbox>
+				</hbox>
+			</vbox>
+		</groupbox>
+	</prefpane>
+</prefwindow>

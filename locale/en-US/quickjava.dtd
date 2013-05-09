@@ -1,0 +1,50 @@
+<!ENTITY quickjava.javascript               "Javascript">
+<!ENTITY quickjava.java                     "Java">
+<!ENTITY quickjava.flash                    "Flash">
+<!ENTITY quickjava.silverlight              "SilverLight">
+<!ENTITY quickjava.animage                  "Animated Images">
+<!ENTITY quickjava.cookies                  "Cookies">
+<!ENTITY quickjava.images                   "Images">
+<!ENTITY quickjava.css                      "Style">
+<!ENTITY quickjava.proxy                    "Proxy">
+
+<!ENTITY quickjava.statusbar.javascript     "Enable/Disable Javascript">
+<!ENTITY quickjava.statusbar.java           "Enable/Disable Java">
+<!ENTITY quickjava.statusbar.flash          "Enable/Disable Flash">
+<!ENTITY quickjava.statusbar.silverlight    "Enable/Disable SilverLight">
+<!ENTITY quickjava.statusbar.animage        "Enable/Disable Animated Images">
+<!ENTITY quickjava.statusbar.cookies        "Enable/Disable Cookies">
+<!ENTITY quickjava.statusbar.images         "Automatically Load Images">
+<!ENTITY quickjava.statusbar.css            "Toggle Style">
+<!ENTITY quickjava.statusbar.proxy          "Toggle Proxy">
+
+<!ENTITY quickjava.context.refresh          "Refresh Icons">
+<!ENTITY quickjava.context.options          "Options">
+<!ENTITY quickjava.options.title            "QuickJava Options">
+<!ENTITY quickjava.options.advancedsettings "Advanced Settings - Plugin Regular Expressions">
+<!ENTITY quickjava.options.colorsettings    "Other">
+<!ENTITY quickjava.options.statusbargroup   "Statusbar Icons Button">
+
+<!ENTITY quickjava.options.hide.javascript  "Hide Javascript Button">
+<!ENTITY quickjava.options.hide.java        "Hide Java Button">
+<!ENTITY quickjava.options.hide.flash       "Hide Flash Button">
+<!ENTITY quickjava.options.hide.silverlight "Hide SilverLight Button">
+<!ENTITY quickjava.options.hide.animage     "Hide Animated Images Button">
+<!ENTITY quickjava.options.hide.cookies     "Hide Cookies Button">
+<!ENTITY quickjava.options.hide.images      "Hide Images Button">
+<!ENTITY quickjava.options.hide.css         "Hide Style Button">
+<!ENTITY quickjava.options.hide.proxy       "Hide Proxy Button">
+
+<!ENTITY quickjava.options.actions.reload   "Reload Page On Change">
+
+<!ENTITY quickjava.options.links.header     "Quickjava Links">
+
+<!ENTITY quickjava.options.links.help       "Help and FAQ">
+
+<!ENTITY quickjava.options.links.home       "Support Website">
+
+<!ENTITY quickjava.options.links.donate     "Donate (Click the 'Contribute' button, Thanks!)">
+
+
+<!ENTITY quickjava.reset                    "Reset">
+<!ENTITY quickjava.options.betasettings     "In Beta Options">

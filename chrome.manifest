@@ -1,0 +1,8 @@
+content    quickjava    content/
+
+overlay	   chrome://browser/content/browser.xul    chrome://quickjava/content/browserOverlay.xul
+
+skin	quickjava	classic/1.0	chrome://quickjava/content/skin/classic/quickjava/
+style	chrome://browser/content/browser.xul	chrome://quickjava/skin/quickjava.css
+style	chrome://global/content/customizeToolbar.xul	chrome://quickjava/skin/quickjava.css
+locale     quickjava   en-US   locale/en-US/
