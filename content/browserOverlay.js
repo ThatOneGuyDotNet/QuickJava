@@ -1,6 +1,6 @@
 //QuickJava by Doug Greene 
 //Some style work, Cookies, Animated Images and BrowserReload added by Dave Delisle
-//FF13+ Style fix by John Grimes
+//See ReadMe.txt for version history and credits
 
 if(!thatoneguydotnet) var thatoneguydotnet={};
 if(!thatoneguydotnet.QuickJava) thatoneguydotnet.QuickJava={};
@@ -9,12 +9,16 @@ thatoneguydotnet.QuickJava={
 	
 onLoad: function(evt)
 	{
-		this.errMsg       = '';
-		this.debugMode    = false;
+		this.errMsg                         = '';
+		this.debugMode                      = false;
+		this.alertPluginNames               = false;
+		this.alertPluginNamesOnMatch        = false;
+                this.curVersion                     = '';
+		this.firstInstallUrl                = '';
+		this.newVersionUrl                  = '';
+
 		try
-		{
-			this.alertPluginNames       = false;
-			
+		{			
 			this.qj_Prefix_Pref         = 'thatoneguydotnet.QuickJava';
 			this.Plugin_TopicStr        = this.qj_Prefix_Pref + ".plugins.refreshIcons";
 			this.qj_Prefix_Pref_Hide    = this.qj_Prefix_Pref + '.hidestatus.';
@@ -25,6 +29,7 @@ onLoad: function(evt)
 			this.qj_Prefix_Sb           = this.qj_Prefix + 'StatusIcon_';
 			this.qj_Prefix_Sb_Container = this.qj_Prefix_Sb + 'Container_';
 			this.qj_Prefix_Tb           = this.qj_Prefix + 'ToolbarIcon_';
+			this.qj_Prefix_Tb_Container = this.qj_Prefix_Tb + 'Container_';
 			
 			this.qj_JS                  = 'JavaScript';
 			this.qj_J                   = 'Java';
@@ -40,8 +45,20 @@ onLoad: function(evt)
 			.getService (Components.interfaces.nsIObserverService);
 			this.prefs = Components.classes["@mozilla.org/preferences-service;1"].
 			getService(Components.interfaces.nsIPrefBranch);
-			
+
+			//Initialize pref monitors			
 			this.onLoadDetails();
+
+			//First startup routine
+			if (Components.classes["@mozilla.org/appshell/window-mediator;1"]
+			      .getService(Components.interfaces.nsIWindowMediator)
+			      .getEnumerator("").getNext() == window)
+			{
+                        	this.firstStartup();
+			}
+
+			//Update all icons
+			this.updateIcons();
 		} catch (e) { this.handleError(e); }
 		if (this.debugMode && this.errMsg != '') { alert(this.errMsg); this.errMsg = ''; }
 	},
@@ -53,7 +70,29 @@ handleError: function(e)
 		+ ".\n\n Error number: " + e.number
 		+ ".\n\n Error message: " + e.message;
 	},
-	
+firstStartup: function(e)
+        {
+                this.curVersion = this.prefs.getCharPref("thatoneguydotnet.QuickJava.curVersion");
+		Components.utils.import("resource://gre/modules/AddonManager.jsm");
+		    AddonManager.getAddonByID("{E6C1199F-E687-42da-8C24-E7770CC3AE66}", function(addon) { thatoneguydotnet.QuickJava.versionCheck(addon);});
+
+        },
+versionCheck: function(addon)
+	{
+		if (this.curVersion != addon.version)
+		{
+			if (this.curVersion == '' && this.firstInstallUrl != '')
+			{
+				gBrowser.selectedTab = gBrowser.addTab(this.firstInstallUrl);
+			}
+			else if (this.newVersionUrl != '')
+			{
+				gBrowser.selectedTab = gBrowser.addTab(this.newVersionUrl);
+			}
+			this.curVersion = addon.version;
+			this.prefs.setCharPref("thatoneguydotnet.QuickJava.curVersion", this.curVersion)
+		}
+	},	
 getProxyOnValue: function()
 	{
 		var onValue             = this.prefs.getIntPref("thatoneguydotnet.QuickJava.priorvalue.Proxy");
@@ -152,15 +191,15 @@ reset_pref_click: function(event, whichReset)
 	
 GetTypeFromId: function(id)
 	{
-		if (id == this.qj_Prefix_Sb_Container + this.qj_JS || id == this.qj_Prefix_Tb + this.qj_JS) { return this.qj_JS; }
-		if (id == this.qj_Prefix_Sb_Container + this.qj_J  || id == this.qj_Prefix_Tb + this.qj_J)  { return this.qj_J; }
-		if (id == this.qj_Prefix_Sb_Container + this.qj_F  || id == this.qj_Prefix_Tb + this.qj_F)  { return this.qj_F; }
-		if (id == this.qj_Prefix_Sb_Container + this.qj_SL || id == this.qj_Prefix_Tb + this.qj_SL) { return this.qj_SL; }
-		if (id == this.qj_Prefix_Sb_Container + this.qj_AI || id == this.qj_Prefix_Tb + this.qj_AI) { return this.qj_AI; }
-		if (id == this.qj_Prefix_Sb_Container + this.qj_C  || id == this.qj_Prefix_Tb + this.qj_C)  { return this.qj_C; }
-		if (id == this.qj_Prefix_Sb_Container + this.qj_I  || id == this.qj_Prefix_Tb + this.qj_I)  { return this.qj_I; }
-		if (id == this.qj_Prefix_Sb_Container + this.qj_CS || id == this.qj_Prefix_Tb + this.qj_CS) { return this.qj_CS; }
-		if (id == this.qj_Prefix_Sb_Container + this.qj_P  || id == this.qj_Prefix_Tb + this.qj_P)  { return this.qj_P; }
+		if (id == this.qj_Prefix_Sb_Container + this.qj_JS || id == this.qj_Prefix_Tb_Container + this.qj_JS) { return this.qj_JS; }
+		if (id == this.qj_Prefix_Sb_Container + this.qj_J  || id == this.qj_Prefix_Tb_Container + this.qj_J)  { return this.qj_J; }
+		if (id == this.qj_Prefix_Sb_Container + this.qj_F  || id == this.qj_Prefix_Tb_Container + this.qj_F)  { return this.qj_F; }
+		if (id == this.qj_Prefix_Sb_Container + this.qj_SL || id == this.qj_Prefix_Tb_Container + this.qj_SL) { return this.qj_SL; }
+		if (id == this.qj_Prefix_Sb_Container + this.qj_AI || id == this.qj_Prefix_Tb_Container + this.qj_AI) { return this.qj_AI; }
+		if (id == this.qj_Prefix_Sb_Container + this.qj_C  || id == this.qj_Prefix_Tb_Container + this.qj_C)  { return this.qj_C; }
+		if (id == this.qj_Prefix_Sb_Container + this.qj_I  || id == this.qj_Prefix_Tb_Container + this.qj_I)  { return this.qj_I; }
+		if (id == this.qj_Prefix_Sb_Container + this.qj_CS || id == this.qj_Prefix_Tb_Container + this.qj_CS) { return this.qj_CS; }
+		if (id == this.qj_Prefix_Sb_Container + this.qj_P  || id == this.qj_Prefix_Tb_Container + this.qj_P)  { return this.qj_P; }
 	},
 	
 updateIcons: function()
@@ -197,8 +236,6 @@ GetRegEx: function(whichIcon)
 	
 setIcon: function(whichIcon, onOff)
 	{
-		if (!window.statusbar.visible)
-			return;
 		var isHidden      = this.prefs.getBoolPref(this.qj_Prefix_Pref_Hide + whichIcon);
 		var statusNumber  = (onOff == 1 ? "1" : (onOff == 0 ? "0" : "-2"));
 		var chkBx         = document.getElementById(this.qj_Prefix_Tb + whichIcon);
@@ -208,7 +245,7 @@ setIcon: function(whichIcon, onOff)
 		if (icon) { icon.setAttribute("status", isHidden ? "-1" : statusNumber); }
 		
 		var container = document.getElementById(this.qj_Prefix_Sb_Container + whichIcon);
-		if (container ) { container .setAttribute("status", isHidden ? "-1" : statusNumber); }
+		if (container ) { container.setAttribute("status", isHidden ? "-1" : statusNumber); }
 	},
 	
 	// 
@@ -223,32 +260,32 @@ GetPluginTags: function() {
 	// Sets plugin enabled status of plugin(s), whose name matches on aRegEx,
 	// to aValue. aName is used for the "not found" message and is optional
 toggleEnabled: function(whichIcon) {
-	var onOff = !this.isEnabled(whichIcon);
+	var setEnabled = !this.isEnabled(whichIcon);
 	if (whichIcon == this.qj_JS)
 	{
-		this.prefs.setBoolPref("javascript.enabled", onOff);
+		this.prefs.setBoolPref("javascript.enabled", setEnabled);
 	}
 	else if (whichIcon == this.qj_AI)
 	{
-		this.prefs.setCharPref("image.animation_mode", (onOff ? "normal" : "none"));
+		this.prefs.setCharPref("image.animation_mode", (setEnabled ? "normal" : "none"));
 	}
 	else if (whichIcon == this.qj_C)
 	{
 		var onValueCookies = this.getCookieOnValue();
-		this.prefs.setIntPref("network.cookie.cookieBehavior", (onOff ? onValueCookies : "2"));
+		this.prefs.setIntPref("network.cookie.cookieBehavior", (setEnabled ? onValueCookies : "2"));
 	}
 	else if (whichIcon == this.qj_I)
 	{
-		this.prefs.setIntPref("permissions.default.image", (onOff ? "1" : "2"));
+		this.prefs.setIntPref("permissions.default.image", (setEnabled ? "1" : "2"));
 	}
 	else if (whichIcon == this.qj_CS)
 	{
-		this.setStyleDisabledExtended(!onOff)
+		this.setStyleDisabledExtended(!setEnabled)
 	}
 	else if (whichIcon == this.qj_P)
 	{
 		var onValue = this.getProxyOnValue();
-		this.prefs.setIntPref("network.proxy.type", (onOff ? onValue : "0"));
+		this.prefs.setIntPref("network.proxy.type", (setEnabled ? onValue : "0"));
 	}
 	else
 	{
@@ -260,7 +297,18 @@ toggleEnabled: function(whichIcon) {
 		for (var i = 0; i < plugins.length; i++) {
 			if (this.alertPluginNames) { alert(plugins[i].name);}
 			if (plugins[i].name.match(aRegEx)) {
-				plugins[i].disabled = !(onOff);
+				if (this.alertPluginNamesOnMatch) { alert(plugins[i].name);}
+				if ("enabledState" in plugins[i])
+				{
+				        plugins[i].enabledState = (setEnabled ? Ci.nsIPluginTag.STATE_ENABLED : Ci.nsIPluginTag.STATE_DISABLED);
+//				        if (!setEnabled && this.prefs.getBoolPref("thatoneguydotnet.QuickJava.disabledState.ClickToPlay")) { 
+//						plugins[i].enabledState = Ci.nsIPluginTag.STATE_CLICKTOPLAY;
+//					}
+				}
+				else
+				{
+					plugins[i].disabled = !(setEnabled);
+				}
 				found = true;
 				this.Plugin.notifyObservers(this, this.Plugin_TopicStr,whichIcon);
 			}
@@ -342,7 +390,18 @@ isEnabled: function(whichIcon) {
 	var plugins = this.GetPluginTags();
 	if (!plugins) return false;
 	for (var i = 0; i < plugins.length; i++) {
-		if (plugins[i].name.match(aRegEx) && !plugins[i].disabled) { return 1; }
+		if (plugins[i].name.match(aRegEx))
+		{
+ 			if ("enabledState" in plugins[i])
+			{
+				
+			        if (plugins[i].enabledState == Ci.nsIPluginTag.STATE_ENABLED) { return 1; }
+			}
+			else
+			{
+				if (!plugins[i].disabled) { return 1; }
+			}
+		}
 	}
 	return 0;
 },
@@ -407,8 +466,6 @@ onLoadDetails: function(evt)
 		
 		this.PrefObserver.register();
 		this.PluginObserver.register();
-		
-		this.updateIcons();
 	},
 	
 onUnload: function(evt)

@@ -5,6 +5,7 @@
 //from the Statusbar and/or Toolbar.
 //
 //Version History
+//Version 1.8.1 Update to work with FF23 and above, fix button spacing and skinning (provided by anonymous user), Slight change to look of icons to modernize (provided by Dave).
 //Version 1.8.0 Back to Red buttons, a few minor bug fixes and added links on Options page.  Thanks again to Dave for more help.
 //Version 1.7.9 Dave Delisle has fixed the size of the buttons for those not using large icons
 //Version 1.7.8 Fix more style issues including more updates by Dave Delisle, also fixed Cookie button
