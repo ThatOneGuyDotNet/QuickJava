@@ -14,7 +14,7 @@ pref("thatoneguydotnet.QuickJava.priorvalue.Cookie",        2);
 
 pref("thatoneguydotnet.QuickJava.actions.Reload",           false);
 
-pref("thatoneguydotnet.QuickJava.disabledState.ClickToPlay",true);
+pref("thatoneguydotnet.QuickJava.enabledState.ClickToPlay",false);
 
 pref("thatoneguydotnet.QuickJava.regex.Java",               '(^libnpjp2.so$|(^| )java.*(platform|plug-?in))|(IcedTea)');
 pref("thatoneguydotnet.QuickJava.regex.Flash",              '(^| )Shockwave Flash');
