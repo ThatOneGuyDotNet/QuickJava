@@ -4,219 +4,242 @@
 <!DOCTYPE overlay SYSTEM "chrome://quickjava/locale/quickjava.dtd">
 
 <overlay id="quickjava-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-	
-	<script type="application/x-javascript" src="chrome://quickjava/content/browserOverlay.js"/>
-	
-	<stringbundleset id="stringbundleset">
-		<stringbundle id="quickjava-strings" src="chrome://quickjava/locale/quickjava.properties"/>
-	</stringbundleset>
-	
-	<statusbar id="status-bar">
-		
-		<statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_JavaScript" tooltiptext="&quickjava.statusbar.javascript;" onclick="thatoneguydotnet.QuickJava.click(event);" >
-			<hbox>
-				<vbox>
-					<spacer flex="1" />
-					<label id="QuickJava_StatusIcon_JavaScript" class="quickjava-button" value="JS"/>
-					<spacer flex="1" />
-				</vbox>
-			</hbox>
-		</statusbarpanel>
-		
-		<statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_Java" tooltip="QuickJava_status_tip_Java" onclick="thatoneguydotnet.QuickJava.click(event);">
-			<hbox>
-				<vbox>
-					<spacer flex="1" />
-					<label id="QuickJava_StatusIcon_Java" class="quickjava-button" value="J"/>
-					<spacer flex="1" />
-				</vbox>
-			</hbox>
-		</statusbarpanel>
-		
-		<statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_Flash" tooltip="QuickJava_status_tip_Flash" onclick="thatoneguydotnet.QuickJava.click(event);">
-			<hbox>
-				<vbox>
-					<spacer flex="1" />
-					<label id="QuickJava_StatusIcon_Flash" class="quickjava-button" value="F"/>
-					<spacer flex="1" />
-				</vbox>
-			</hbox>
-		</statusbarpanel>
-		
-		<statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_Silverlight" tooltip="QuickJava_status_tip_Silverlight" onclick="thatoneguydotnet.QuickJava.click(event);">
-			<hbox>
-				<vbox>
-					<spacer flex="1" />
-					<label id="QuickJava_StatusIcon_Silverlight" class="quickjava-button" value="SL"/>
-					<spacer flex="1" />
-				</vbox>
-			</hbox>
-		</statusbarpanel>
-		
-		<statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_Cookies" tooltip="QuickJava_status_tip_Cookies" onclick="thatoneguydotnet.QuickJava.click(event);">
-			<hbox>
-				<vbox>
-					<spacer flex="1" />
-					<label id="QuickJava_StatusIcon_Cookies" class="quickjava-button" value="C"/>
-					<spacer flex="1" />
-				</vbox>
-			</hbox>
-		</statusbarpanel>
-		
-		<statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_Images" tooltip="QuickJava_status_tip_Images" onclick="thatoneguydotnet.QuickJava.click(event);">
-			<hbox>
-				<vbox>
-					<spacer flex="1" />
-					<label id="QuickJava_StatusIcon_Images" class="quickjava-button" value="I"/>
-					<spacer flex="1" />
-				</vbox>
-			</hbox>
-		</statusbarpanel>
-		
-		<statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_AnimatedImage" tooltip="QuickJava_status_tip_AnimatedImage" onclick="thatoneguydotnet.QuickJava.click(event);">
-			<hbox>
-				<vbox>
-					<spacer flex="1" />
-					<label id="QuickJava_StatusIcon_AnimatedImage" class="quickjava-button" value="A"/>
-					<spacer flex="1" />
-				</vbox>
-			</hbox>
-		</statusbarpanel>
-		
-		<statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_CSS" tooltip="QuickJava_status_tip_CSS" onclick="thatoneguydotnet.QuickJava.click(event);">
-			<hbox>
-				<vbox>
-					<spacer flex="1" />
-					<label id="QuickJava_StatusIcon_CSS" class="quickjava-button" value="CS"/>
-					<spacer flex="1" />
-				</vbox>
-			</hbox>
-		</statusbarpanel>
-		
-		<statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_Proxy" tooltip="QuickJava_status_tip_Proxy" onclick="thatoneguydotnet.QuickJava.click(event);">
-			<hbox>
-				<vbox>
-					<spacer flex="1" />
-					<label id="QuickJava_StatusIcon_Proxy" class="quickjava-button" value="P"/>
-					<spacer flex="1" />
-				</vbox>
-			</hbox>
-		</statusbarpanel>
-		
-	</statusbar>
-	
-	<toolbarpalette id="BrowserToolbarPalette">
-		
-		<toolbarbutton id="QuickJava_ToolbarIcon_Container_JavaScript" title="&quickjava.javascript;"
-			oncommand="thatoneguydotnet.QuickJava.click(event);" tooltiptext="&quickjava.statusbar.javascript;" context="quickjava_contextmenu">
-			<label id="QuickJava_ToolbarIcon_JavaScript" class="quickjava-button" value="JS" />
-		</toolbarbutton>
+  
+  <script type="application/x-javascript" src="chrome://quickjava/content/browserOverlay.js"/>
+  
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="quickjava-strings" src="chrome://quickjava/locale/quickjava.properties"/>
+  </stringbundleset>
+  
+  <statusbar id="status-bar">
+    
+    <statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_JavaScript" tooltiptext="&quickjava.tooltip.javascript;" onclick="thatoneguydotnet.QuickJava.onClick(event);" >
+      <hbox>
+        <vbox>
+          <spacer flex="1" />
+          <label id="QuickJava_StatusIcon_JavaScript" class="quickjava-button" value="JS"/>
+          <spacer flex="1" />
+        </vbox>
+      </hbox>
+    </statusbarpanel>
+    
+    <statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_Java" tooltip="QuickJava_status_tip_Java" onclick="thatoneguydotnet.QuickJava.onClick(event);">
+      <hbox>
+        <vbox>
+          <spacer flex="1" />
+          <label id="QuickJava_StatusIcon_Java" class="quickjava-button" value="J"/>
+          <spacer flex="1" />
+        </vbox>
+      </hbox>
+    </statusbarpanel>
+    
+    <statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_Flash" tooltip="QuickJava_status_tip_Flash" onclick="thatoneguydotnet.QuickJava.onClick(event);">
+      <hbox>
+        <vbox>
+          <spacer flex="1" />
+          <label id="QuickJava_StatusIcon_Flash" class="quickjava-button" value="F"/>
+          <spacer flex="1" />
+        </vbox>
+      </hbox>
+    </statusbarpanel>
 
-		<toolbarbutton id="QuickJava_ToolbarIcon_Container_Java" title="&quickjava.java;"
-			oncommand="thatoneguydotnet.QuickJava.click(event);" tooltiptext="&quickjava.statusbar.java;" context="quickjava_contextmenu" >
-			<label id="QuickJava_ToolbarIcon_Java" class="quickjava-button" value="J" />
-		</toolbarbutton>
-		
-		<toolbarbutton id="QuickJava_ToolbarIcon_Container_Flash" label="&quickjava.flash;"
-			oncommand="thatoneguydotnet.QuickJava.click(event);" tooltiptext="&quickjava.statusbar.flash;" context="quickjava_contextmenu" >
-			<label id="QuickJava_ToolbarIcon_Flash" class="quickjava-button" value="F" />
-		</toolbarbutton>
-		
-		<toolbarbutton id="QuickJava_ToolbarIcon_Container_Silverlight" label="&quickjava.silverlight;"
-			oncommand="thatoneguydotnet.QuickJava.click(event);" tooltiptext="&quickjava.statusbar.silverlight;" context="quickjava_contextmenu" >
-			<label id="QuickJava_ToolbarIcon_Silverlight" class="quickjava-button" value="SL" />
-		</toolbarbutton>
-		
-		<toolbarbutton id="QuickJava_ToolbarIcon_Container_AnimatedImage" label="&quickjava.animage;"
-			oncommand="thatoneguydotnet.QuickJava.click(event);" tooltiptext="&quickjava.statusbar.animage;" context="quickjava_contextmenu" >
-			<label id="QuickJava_ToolbarIcon_AnimatedImage" class="quickjava-button" value="A" />
-		</toolbarbutton>
-		
-		<toolbarbutton id="QuickJava_ToolbarIcon_Container_Cookies" label="&quickjava.cookies;"
-			oncommand="thatoneguydotnet.QuickJava.click(event);" tooltiptext="&quickjava.statusbar.cookies;" context="quickjava_contextmenu">
-			<label id="QuickJava_ToolbarIcon_Cookies" class="quickjava-button" value="C" />
-		</toolbarbutton>
-		
-		<toolbarbutton id="QuickJava_ToolbarIcon_Container_Images" label="&quickjava.images;"
-			oncommand="thatoneguydotnet.QuickJava.click(event);" tooltiptext="&quickjava.statusbar.images;" context="quickjava_contextmenu" >
-			<label id="QuickJava_ToolbarIcon_Images" class="quickjava-button" value="I" />
-		</toolbarbutton>
-		
-		<toolbarbutton id="QuickJava_ToolbarIcon_Container_CSS" label="&quickjava.css;"
-			oncommand="thatoneguydotnet.QuickJava.click(event);" tooltiptext="&quickjava.statusbar.css;" context="quickjava_contextmenu" >
-			<label id="QuickJava_ToolbarIcon_CSS" class="quickjava-button" value="CS" />
-		</toolbarbutton>
-		
-		<toolbarbutton id="QuickJava_ToolbarIcon_Container_Proxy" label="&quickjava.proxy;"
-			oncommand="thatoneguydotnet.QuickJava.click(event);" tooltiptext="&quickjava.statusbar.proxy;" context="quickjava_contextmenu" >
-			<label id="QuickJava_ToolbarIcon_Proxy" class="quickjava-button" value="P" />
-		</toolbarbutton>
-		
-	</toolbarpalette>
-	
-	<popupset>
-		
-		<tooltip id="QuickJava_status_tip_JavaScript" noautohide="true" orient="horizontal">
-			<hbox>
-				<description value="&quickjava.statusbar.javascript;" id="QuickJava_status_tip_desc_JavaScript"/>
-			</hbox>
-		</tooltip>
-		
-		<tooltip id="QuickJava_status_tip_Java" noautohide="true" orient="horizontal">
-			<hbox>
-				<description value="&quickjava.statusbar.java;" id="QuickJava_status_tip_desc_Java"/>
-			</hbox>
-		</tooltip>
-		
-		<tooltip id="QuickJava_status_tip_Flash" noautohide="true" orient="horizontal">
-			<hbox>
-				<description value="&quickjava.statusbar.flash;" id="QuickJava_status_tip_desc_Flash"/>
-			</hbox>
-		</tooltip>
-		
-		<tooltip id="QuickJava_status_tip_Silverlight" noautohide="true" orient="horizontal">
-			<hbox>
-				<description value="&quickjava.statusbar.silverlight;" id="QuickJava_status_tip_desc_Silverlight"/>
-			</hbox>
-		</tooltip>
-		
-		<tooltip id="QuickJava_status_tip_AnimatedImage" noautohide="true" orient="horizontal">
-			<hbox>
-				<description value="&quickjava.statusbar.animage;" id="QuickJava_status_tip_desc_AnimatedImage"/>
-			</hbox>
-		</tooltip>
-		
-		<tooltip id="QuickJava_status_tip_Cookies" noautohide="true" orient="horizontal">
-			<hbox>
-				<description value="&quickjava.statusbar.cookies;" id="QuickJava_status_tip_desc_Cookies"/>
-			</hbox>
-		</tooltip>
-		
-		<tooltip id="QuickJava_status_tip_Images" noautohide="true" orient="horizontal">
-			<hbox>
-				<description value="&quickjava.statusbar.images;" id="QuickJava_status_tip_desc_Images"/>
-			</hbox>
-		</tooltip>
-		
-		<tooltip id="QuickJava_status_tip_CSS" noautohide="true" orient="horizontal">
-			<hbox>
-				<description value="&quickjava.statusbar.css;" id="QuickJava_status_tip_desc_CSS"/>
-			</hbox>
-		</tooltip>
-		
-		<tooltip id="QuickJava_status_tip_Proxy" noautohide="true" orient="horizontal">
-			<hbox>
-				<description value="&quickjava.statusbar.proxy;" id="QuickJava_status_tip_desc_Proxy"/>
-			</hbox>
-		</tooltip>
-		
-		<menupopup id="quickjava_contextmenu">
-			<menuitem label="&quickjava.context.refresh;"
-			oncommand="thatoneguydotnet.QuickJava.updateIcons()"/>
-			<menuitem label="&quickjava.context.options;" default="true"
-			oncommand="thatoneguydotnet.QuickJava.showOptions()"/>
-		</menupopup>
-		
-	</popupset>
-	
+    <statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_Silverlight" tooltip="QuickJava_status_tip_Silverlight" onclick="thatoneguydotnet.QuickJava.onClick(event);">
+      <hbox>
+        <vbox>
+          <spacer flex="1" />
+          <label id="QuickJava_StatusIcon_Silverlight" class="quickjava-button" value="SL"/>
+          <spacer flex="1" />
+        </vbox>
+      </hbox>
+    </statusbarpanel>
+    
+    <statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_Cookies" tooltip="QuickJava_status_tip_Cookies" onclick="thatoneguydotnet.QuickJava.onClick(event);">
+      <hbox>
+        <vbox>
+          <spacer flex="1" />
+          <label id="QuickJava_StatusIcon_Cookies" class="quickjava-button" value="C"/>
+          <spacer flex="1" />
+        </vbox>
+      </hbox>
+    </statusbarpanel>
+    
+    <statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_Images" tooltip="QuickJava_status_tip_Images" onclick="thatoneguydotnet.QuickJava.onClick(event);">
+      <hbox>
+        <vbox>
+          <spacer flex="1" />
+          <label id="QuickJava_StatusIcon_Images" class="quickjava-button" value="I"/>
+          <spacer flex="1" />
+        </vbox>
+      </hbox>
+    </statusbarpanel>
+
+    <statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_AnimatedImage" tooltip="QuickJava_status_tip_AnimatedImage" onclick="thatoneguydotnet.QuickJava.onClick(event);">
+      <hbox>
+        <vbox>
+          <spacer flex="1" />
+          <label id="QuickJava_StatusIcon_AnimatedImage" class="quickjava-button" value="A"/>
+          <spacer flex="1" />
+        </vbox>
+      </hbox>
+    </statusbarpanel>
+
+    <statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_CSS" tooltip="QuickJava_status_tip_CSS" onclick="thatoneguydotnet.QuickJava.onClick(event);">
+      <hbox>
+        <vbox>
+          <spacer flex="1" />
+          <label id="QuickJava_StatusIcon_CSS" class="quickjava-button" value="CS"/>
+          <spacer flex="1" />
+        </vbox>
+      </hbox>
+    </statusbarpanel>
+    
+    <statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_Proxy" tooltip="QuickJava_status_tip_Proxy" onclick="thatoneguydotnet.QuickJava.onClick(event);">
+      <hbox>
+        <vbox>
+          <spacer flex="1" />
+          <label id="QuickJava_StatusIcon_Proxy" class="quickjava-button" value="P"/>
+          <spacer flex="1" />
+        </vbox>
+      </hbox>
+    </statusbarpanel>
+    
+  </statusbar>
+  
+  <toolbarpalette id="BrowserToolbarPalette">
+
+    <toolbarbutton id="QuickJava_ToolbarIcon_Container_JavaScript" title="&quickjava.javascript;"
+      oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.javascript;" context="quickjava_contextmenu">
+      <label id="QuickJava_ToolbarIcon_JavaScript" class="quickjava-button" value="JS" />
+    </toolbarbutton>
+
+    <toolbarbutton id="QuickJava_ToolbarIcon_Container_Java" title="&quickjava.java;"
+      oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.java;" context="quickjava_contextmenu" >
+      <label id="QuickJava_ToolbarIcon_Java" class="quickjava-button" value="J" />
+    </toolbarbutton>
+    
+    <toolbarbutton id="QuickJava_ToolbarIcon_Container_Flash" label="&quickjava.flash;"
+      oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.flash;" context="quickjava_contextmenu" >
+      <label id="QuickJava_ToolbarIcon_Flash" class="quickjava-button" value="F" />
+    </toolbarbutton>
+    
+    <toolbarbutton id="QuickJava_ToolbarIcon_Container_Silverlight" label="&quickjava.silverlight;"
+      oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.silverlight;" context="quickjava_contextmenu" >
+      <label id="QuickJava_ToolbarIcon_Silverlight" class="quickjava-button" value="SL" />
+    </toolbarbutton>
+
+    <toolbarbutton id="QuickJava_ToolbarIcon_Container_AnimatedImage" label="&quickjava.animage;"
+      oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.animage;" context="quickjava_contextmenu" >
+      <label id="QuickJava_ToolbarIcon_AnimatedImage" class="quickjava-button" value="A" />
+    </toolbarbutton>
+    
+    <toolbarbutton id="QuickJava_ToolbarIcon_Container_Cookies" label="&quickjava.cookies;"
+      oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.cookies;" context="quickjava_contextmenu">
+      <label id="QuickJava_ToolbarIcon_Cookies" class="quickjava-button" value="C" />
+    </toolbarbutton>
+    
+    <toolbarbutton id="QuickJava_ToolbarIcon_Container_Images" label="&quickjava.images;"
+      oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.images;" context="quickjava_contextmenu" >
+      <label id="QuickJava_ToolbarIcon_Images" class="quickjava-button" value="I" />
+    </toolbarbutton>
+
+    <toolbarbutton id="QuickJava_ToolbarIcon_Container_CSS" label="&quickjava.css;"
+      oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.css;" context="quickjava_contextmenu" >
+      <label id="QuickJava_ToolbarIcon_CSS" class="quickjava-button" value="CS" />
+    </toolbarbutton>
+
+    <toolbarbutton id="QuickJava_ToolbarIcon_Container_Proxy" label="&quickjava.proxy;"
+      oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.proxy;" context="quickjava_contextmenu" >
+      <label id="QuickJava_ToolbarIcon_Proxy" class="quickjava-button" value="P" />
+    </toolbarbutton>
+
+    <toolbaritem id="QuickJava_ToolbarIcon_Container_Favorites_Item" label="&quickjava.favorites;">
+      <toolbarbutton id="QuickJava_ToolbarIcon_Container_Favorites" label="&quickjava.favorites;"
+       oncommand="thatoneguydotnet.QuickJava.onCommandFavorites(event);" tooltiptext="&quickjava.tooltip.favorites;" context="quickjava_contextmenu">
+        <hbox>
+          <label id="QuickJava_ToolbarIcon_Favorites" class="quickjava-button" value="QJ" />
+          <label id="QuickJava_ToolbarIcon_Favorites_Different" class="quickjava-favorites-different" value="!" />
+        </hbox>
+      </toolbarbutton>
+      <toolbarbutton id="QuickJava_ToolbarIcon_Container_Favorites_Menu" type="menu">
+        <menupopup id='QuickJava_ToolbarIcon_Container_Favorites_Menu'>
+           <menuitem label="JS" value="JS" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_JavaScript" type="checkbox" />
+           <menuitem label="J" value="J" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Java" type="checkbox" />
+           <menuitem label="F" value="F" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Flash" type="checkbox" />
+           <menuitem label="SL" value="SL" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Silverlight" type="checkbox" />
+           <menuitem label="A" value="A" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_AnimatedImage" type="checkbox" />
+           <menuitem label="C" value="C" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Cookies" type="checkbox" />
+           <menuitem label="I" value="I" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Images" type="checkbox" />
+           <menuitem label="CS" value="CS" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_CSS" type="checkbox" />
+           <menuitem label="P" value="P" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Proxy" type="checkbox" />
+        </menupopup>
+      </toolbarbutton>
+    </toolbaritem>
+  </toolbarpalette>
+
+  <popupset>
+
+    <tooltip id="QuickJava_status_tip_JavaScript" noautohide="true" orient="horizontal">
+      <hbox>
+        <description value="&quickjava.tooltip.javascript;" id="QuickJava_status_tip_desc_JavaScript"/>
+      </hbox>
+    </tooltip>
+
+    <tooltip id="QuickJava_status_tip_Java" noautohide="true" orient="horizontal">
+      <hbox>
+        <description value="&quickjava.tooltip.java;" id="QuickJava_status_tip_desc_Java"/>
+      </hbox>
+    </tooltip>
+    
+    <tooltip id="QuickJava_status_tip_Flash" noautohide="true" orient="horizontal">
+      <hbox>
+        <description value="&quickjava.tooltip.flash;" id="QuickJava_status_tip_desc_Flash"/>
+      </hbox>
+    </tooltip>
+    
+    <tooltip id="QuickJava_status_tip_Silverlight" noautohide="true" orient="horizontal">
+      <hbox>
+        <description value="&quickjava.tooltip.silverlight;" id="QuickJava_status_tip_desc_Silverlight"/>
+      </hbox>
+    </tooltip>
+    
+    <tooltip id="QuickJava_status_tip_AnimatedImage" noautohide="true" orient="horizontal">
+      <hbox>
+        <description value="&quickjava.tooltip.animage;" id="QuickJava_status_tip_desc_AnimatedImage"/>
+      </hbox>
+    </tooltip>
+    
+    <tooltip id="QuickJava_status_tip_Cookies" noautohide="true" orient="horizontal">
+      <hbox>
+        <description value="&quickjava.tooltip.cookies;" id="QuickJava_status_tip_desc_Cookies"/>
+      </hbox>
+    </tooltip>
+    
+    <tooltip id="QuickJava_status_tip_Images" noautohide="true" orient="horizontal">
+      <hbox>
+        <description value="&quickjava.tooltip.images;" id="QuickJava_status_tip_desc_Images"/>
+      </hbox>
+    </tooltip>
+    
+    <tooltip id="QuickJava_status_tip_CSS" noautohide="true" orient="horizontal">
+      <hbox>
+        <description value="&quickjava.tooltip.css;" id="QuickJava_status_tip_desc_CSS"/>
+      </hbox>
+    </tooltip>
+    
+    <tooltip id="QuickJava_status_tip_Proxy" noautohide="true" orient="horizontal">
+      <hbox>
+        <description value="&quickjava.tooltip.proxy;" id="QuickJava_status_tip_desc_Proxy"/>
+      </hbox>
+    </tooltip>
+    
+    <menupopup id="quickjava_contextmenu">
+      <menuitem label="&quickjava.context.refresh;" oncommand="thatoneguydotnet.QuickJava.updateIcons()"/>
+      <menuitem label="&quickjava.options.links.home;" oncommand="thatoneguydotnet.QuickJava.openHome()"/>
+      <menuitem label="&quickjava.options.links.help;" oncommand="thatoneguydotnet.QuickJava.openHelp()"/>
+      <menuitem label="&quickjava.options.links.donate;" oncommand="thatoneguydotnet.QuickJava.openDonate()"/>
+      <menuitem label="&quickjava.context.options;" default="true" oncommand="thatoneguydotnet.QuickJava.showOptions()"/>
+    </menupopup>
+
+  </popupset>
+  
 </overlay>

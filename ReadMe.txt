@@ -1,10 +1,12 @@
 //QuickJava
 //By Doug G.
 //
-//Allows quick enable and disable of Java, Javascript, Cookies, Image Animations, Flash, Silverlight, Images, Stylesheets and Proxy 
+//Allows quick enable and disable of Java, Javascript, Cookies, Image Animations, Flash, Silverlight, Images, Stylesheets and Proxy
 //from the Statusbar and/or Toolbar.
 //
 //Version History
+//Version 2.0 Major update!  Favorite toolbar button added (auto-install needed).  Middle click only toggles visible status bar values.  Customizable startup options.  Update icons after customization
+//Version 1.8.1.1 ClickToPlay as an option (hidden) for Enabled state
 //Version 1.8.1 Update to work with FF23 and above, fix button spacing and skinning (provided by anonymous user), Slight change to look of icons to modernize (provided by Dave).
 //Version 1.8.0 Back to Red buttons, a few minor bug fixes and added links on Options page.  Thanks again to Dave for more help.
 //Version 1.7.9 Dave Delisle has fixed the size of the buttons for those not using large icons

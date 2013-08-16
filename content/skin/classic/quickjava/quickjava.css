@@ -24,7 +24,17 @@
         rgba( 76,128,178,0.8),
         rgba(110,162,212,0.8));
 }
-  
+
 .QuickJava_StatusIcon_Container[status="-1"] {
     display:        none;
-} 
+}
+
+.quickjava-favorites-different {
+  font: 10px arial,sans-serif;
+  margin: 0px;
+  display: none;
+}
+
+.quickjava-favorites-different[status="1"] {
+  display: block;
+}
