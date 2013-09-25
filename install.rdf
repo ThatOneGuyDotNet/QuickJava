@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 xmlns:em="http://www.mozilla.org/2004/em-rdf#">
@@ -19,5 +19,8 @@ xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 				<em:maxVersion>23.*</em:maxVersion>
 			</Description>
 		</em:targetApplication>
+
+	        <em:translator>strel</em:translator>	<!-- es -->
+
 	</Description>
 </RDF>

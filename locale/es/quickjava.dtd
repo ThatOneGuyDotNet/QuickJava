@@ -1,0 +1,62 @@
+﻿<!ENTITY quickjava.javascript               "Javascript">
+<!ENTITY quickjava.java                     "Java">
+<!ENTITY quickjava.flash                    "Flash">
+<!ENTITY quickjava.silverlight              "SilverLight">
+<!ENTITY quickjava.animage                  "Imágenes animadas">
+<!ENTITY quickjava.cookies                  "Cookies">
+<!ENTITY quickjava.images                   "Imágenes">
+<!ENTITY quickjava.css                      "Estilo">
+<!ENTITY quickjava.proxy                    "Proxy">
+
+<!ENTITY quickjava.favorites                "Favoritos">
+
+<!ENTITY quickjava.tooltip.javascript     "Habilita/Deshabilita Javascript">
+<!ENTITY quickjava.tooltip.java           "Habilita/Deshabilita Java">
+<!ENTITY quickjava.tooltip.flash          "Habilita/Deshabilita Flash">
+<!ENTITY quickjava.tooltip.silverlight    "Habilita/Deshabilita SilverLight">
+<!ENTITY quickjava.tooltip.animage        "Habilita/Deshabilita imágenes animadas">
+<!ENTITY quickjava.tooltip.cookies        "Habilita/Deshabilita cookies">
+<!ENTITY quickjava.tooltip.images         "Habilita/Deshabilita carga automática de imágenes">
+<!ENTITY quickjava.tooltip.css            "Habilita/Deshabilita estilo">
+<!ENTITY quickjava.tooltip.proxy          "Habilita/Deshabilita proxy">
+<!ENTITY quickjava.tooltip.favorites      "Habilita/Deshabilita favoritos">
+
+<!ENTITY quickjava.context.refresh          "Refrescar iconos">
+<!ENTITY quickjava.context.options          "Opciones">
+
+<!ENTITY quickjava.options.title            "Opciones de QuickJava">
+<!ENTITY quickjava.options.advancedsettings "Configuraciones avanzadas - Expresiones regulares del plugin">
+<!ENTITY quickjava.options.colorsettings    "Otros">
+<!ENTITY quickjava.options.mainoptions      "Configuraciones principales">
+<!ENTITY quickjava.options.hidestatusprompt "Ocultar icono de Barra de estado">
+<!ENTITY quickjava.options.favoritesprompt  "Incluir en favoritos">
+<!ENTITY quickjava.options.reloadprompt     "Recargar al cambiar">
+<!ENTITY quickjava.options.startupStatusprompt "Activo">
+<!ENTITY quickjava.options.startupinitialload "Carga inicial">
+<!ENTITY quickjava.options.startupnewwindow  "Nueva ventana">
+<!ENTITY quickjava.options.startupnewtab     "Nueva pestaña">
+
+<!ENTITY quickjava.options.nochange   "">
+<!ENTITY quickjava.options.on     "Activo">
+<!ENTITY quickjava.options.off    "Inactivo">
+
+<!ENTITY quickjava.options.favoritesdifferentprompt1    "Cuando los favoritos estén en diferentes estados, mostrar como ">
+<!ENTITY quickjava.options.favoritesdifferentprompt2    "y al presionar el botón establecer favoritos a ">
+
+<!ENTITY quickjava.options.actions.reload   "Recargar página al hacer un cambio">
+
+<!ENTITY quickjava.options.links.header     "Enlaces de Quickjava">
+<!ENTITY quickjava.options.links.help       "Ayuda y FAQ">
+<!ENTITY quickjava.options.links.home       "Sitio web de soporte">
+<!ENTITY quickjava.options.links.donate     "Donar">
+
+<!ENTITY quickjava.options.custombuttonstyles "Estilos de botón personalizados">
+<!ENTITY quickjava.options.custombuttondefault "Predeterminado">
+<!ENTITY quickjava.options.custombuttonenabled "Habilitado">
+<!ENTITY quickjava.options.custombuttonexample "Ejemplo:">
+
+<!ENTITY quickjava.reset                    "Restablecer">
+<!ENTITY quickjava.options.betasettings     "Opciones en beta">
+
+<!ENTITY quickjava.options.favorites.differentprompt     "Cuando los favoritos están en diferentes estados Habilitado/Deshabilitado, mostrar botón como [Habilitado/Deshabilitado]">
+<!ENTITY quickjava.options.favorites.differentprompt2    " y el accionado establece los favoritos a [Habilitado/Deshabilitado]">
