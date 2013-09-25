@@ -19,8 +19,6 @@ xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 				<em:maxVersion>23.*</em:maxVersion>
 			</Description>
 		</em:targetApplication>
-
 	        <em:translator>strel</em:translator>	<!-- es -->
-
 	</Description>
 </RDF>

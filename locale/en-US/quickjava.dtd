@@ -28,7 +28,7 @@
 <!ENTITY quickjava.options.advancedsettings "Advanced Settings - Plugin Regular Expressions">
 <!ENTITY quickjava.options.colorsettings    "Other">
 <!ENTITY quickjava.options.mainoptions      "Main Settings">
-<!ENTITY quickjava.options.hidestatusprompt "Hide Statusbar Icon">
+<!ENTITY quickjava.options.hidestatusprompt "Hide Add-on Bar Icon">
 <!ENTITY quickjava.options.favoritesprompt  "Include In Favorites">
 <!ENTITY quickjava.options.reloadprompt     "Reload On Change">
 <!ENTITY quickjava.options.startupStatusprompt "On">

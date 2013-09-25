@@ -10,13 +10,14 @@ thatoneguydotnet.QuickJava={
 onLoad: function(evt)
   {
     this.errMsg                         = '';
-    this.debugMode                      = true;
+    this.debugMode                      = false;
     this.alertPluginNames               = false;
     this.alertPluginNamesOnMatch        = false;
-    this.curVersion                     = '';
-    this.firstInstallUrl                = '';
-    this.newVersionUrl                  = '';
-    this.massToggle                     = false;
+    this.firstInstallUrl                = 'http://quickjavaplugin.blogspot.com/2012/07/quickjava-quick-help.html';
+    this.newVersionUrl                  = 'http://quickjavaplugin.blogspot.com/2013/09/quickjava-20.html';
+
+    this.curVersion                     = ''; //do not initialize, automatically loaded
+    this.massToggle                     = false; //program use, do not initialize to true
 
     try
     {
@@ -104,9 +105,14 @@ versionCheck: function(addon)
   {
     if (this.curVersion != addon.version)
     {
-      if (this.curVersion == '' && this.firstInstallUrl != '')
+      if (this.curVersion == '')
       {
-        this.openTab(this.firstInstallUrl,true);
+        this.installButton("nav-bar", "QuickJava_ToolbarIcon_Container_Favorites_Item");
+        this.updateIcons();
+        if (this.firstInstallUrl != '')
+        {
+          this.openTab(this.firstInstallUrl,true);
+        }
       }
       else if (this.newVersionUrl != '')
       {
@@ -116,6 +122,29 @@ versionCheck: function(addon)
       this.prefs.setCharPref("thatoneguydotnet.QuickJava.curVersion", this.curVersion)
     }
   },
+  
+installButton: function(toolbarId, id, afterId) 
+  {
+    if (!document.getElementById(id)) {
+        var toolbar = document.getElementById(toolbarId);
+
+        // If no afterId is given, then append the item to the toolbar
+        var before = null;
+        if (afterId) {
+            let elem = document.getElementById(afterId);
+            if (elem && elem.parentNode == toolbar)
+                before = elem.nextElementSibling;
+        }
+
+        toolbar.insertItem(id, before);
+        toolbar.setAttribute("currentset", toolbar.currentSet);
+        document.persist(toolbar.id, "currentset");
+
+        if (toolbarId == "addon-bar")
+            toolbar.collapsed = false;
+    }
+  },
+
 newTabOpened: function(e)
 {
   thatoneguydotnet.QuickJava.setStartupValues(2);
@@ -304,7 +333,7 @@ reset_pref_click: function(event, whichReset)
     if (this.debugMode && this.errMsg != '') { alert(this.errMsg); this.errMsg = ''; }
     return true;
   },
-  
+
 GetTypeFromId: function(id)
   {
     if (id == this.qj_Prefix_Sb_Container + this.qj_JS || id == this.qj_Prefix_Tb_Container + this.qj_JS) { return this.qj_JS; }
@@ -317,7 +346,7 @@ GetTypeFromId: function(id)
     if (id == this.qj_Prefix_Sb_Container + this.qj_CS || id == this.qj_Prefix_Tb_Container + this.qj_CS) { return this.qj_CS; }
     if (id == this.qj_Prefix_Sb_Container + this.qj_P  || id == this.qj_Prefix_Tb_Container + this.qj_P)  { return this.qj_P; }
   },
-  
+
 updateIcons: function()
   {
     if(!this.massToggle)
@@ -336,6 +365,11 @@ updateIcons: function()
       this.setFavIcon();
     }
     return true;
+  },
+
+customizationChange: function()
+  {
+    thatoneguydotnet.QuickJava.updateIcons();
   },
 
 GetRegEx: function(whichIcon)
@@ -690,7 +724,7 @@ updateCustomStyle: function()
 onLoadDetails: function(evt)
   {
     gBrowser.tabContainer.addEventListener("TabOpen", thatoneguydotnet.QuickJava.newTabOpened, false)
-    window.addEventListener("aftercustomization", thatoneguydotnet.QuickJava.updateIcons, false);
+    window.addEventListener("customizationchange", thatoneguydotnet.QuickJava.customizationChange, false);
     this.PluginObserver =
     {
     register: function()
@@ -760,7 +794,7 @@ onUnload: function(evt)
   {
     this.PrefObserver.unregister();
     this.PluginObserver.unregister();
-    window.removeEventListener("aftercustomization", thatoneguydotnet.QuickJava.updateIcons, false);
+    window.removeEventListener("customizationchange", thatoneguydotnet.QuickJava.customizationChange, false);
     gBrowser.tabContainer.removeEventListener("TabOpen", thatoneguydotnet.QuickJava.newTabOpened, false)
   },
 };
