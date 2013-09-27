@@ -5,7 +5,7 @@
 //from the Add-on bar and/or Toolbar.
 //
 //Version History
-//Version 2.0.1 Major update!  Favorite toolbar button added (auto-install for new users or 1.8.0 and below).  Middle click only toggles visible status bar values.  Customizable startup options.  Update icons after customization.
+//Version 2.0.2 Major update!  Favorite toolbar button added (auto-install for new users or 1.8.0 and below).  Middle click only toggles visible status bar values.  Customizable startup options.  Update icons after customization.
 //Version 1.8.1.1 ClickToPlay as an option (hidden) for Enabled state
 //Version 1.8.1 Update to work with FF23 and above, fix button spacing and skinning (provided by anonymous user), Slight change to look of icons to modernize (provided by Dave).
 //Version 1.8.0 Back to Red buttons, a few minor bug fixes and added links on Options page.  Thanks again to Dave for more help.

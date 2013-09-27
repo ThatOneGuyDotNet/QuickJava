@@ -9,8 +9,7 @@ thatoneguydotnet.QuickJava={
 
 onLoad: function(evt)
   {
-    this.errMsg                         = '';
-    this.debugMode                      = false;
+    if (typeof(Ci) == 'undefined') { return false; } //This is not a normal window (example: options dialog)
     this.alertPluginNames               = false;
     this.alertPluginNamesOnMatch        = false;
     this.firstInstallUrl                = 'http://quickjavaplugin.blogspot.com/2012/07/quickjava-quick-help.html';
@@ -57,7 +56,6 @@ onLoad: function(evt)
       this.customStyleIndxDefault = -1;
       this.customStyleIndxEnabled = -1;
 
-      if (!Ci) { return false; } //This is not a normal window (example: options dialog)
       this.Plugin = Components.classes["@mozilla.org/observer-service;1"]
       .getService (Components.interfaces.nsIObserverService);
       this.prefs = Components.classes["@mozilla.org/preferences-service;1"].
@@ -84,16 +82,15 @@ onLoad: function(evt)
 
       //Update all icons
       this.updateIcons();
-    } catch (e) { this.handleError(e); }
-    if (this.debugMode && this.errMsg != '') { alert(this.errMsg); this.errMsg = ''; }
+    } catch (e) { try { this.handleError(e); } catch (e) {} }
   },
 
 handleError: function(e)
   {
-    this.errMsg = "An exception occurred in the QuickJava script. Error name: " + e.name
+    this.consoleLog("An exception occurred in the QuickJava script. Error name: " + e.name
     + ".\n\n Error description: " + e.description
     + ".\n\n Error number: " + e.number
-    + ".\n\n Error message: " + e.message;
+    + ".\n\n Error message: " + e.message, true);
   },
 firstStartup: function(e)
   {
@@ -241,7 +238,6 @@ getCookieOnValue: function()
 
 onClick: function(event)
   {
-    if (this.debugMode && this.errMsg != '') { alert(this.errMsg); this.errMsg = ''; }
     try
     {
       // event.button == 2 // right
@@ -261,14 +257,12 @@ onClick: function(event)
       if (event.button != 0 && event.button != 1) {
         this.updateIcons();
       }
-    } catch(e) { this.handleError(e); }
-    if (this.debugMode && this.errMsg != '') { alert(this.errMsg); this.errMsg = ''; }
+    } catch (e) { try { this.handleError(e); } catch (e) {} }
     return true;
   },
 
 onCommand: function(event)
   {
-    if (this.debugMode && this.errMsg != '') { alert(this.errMsg); this.errMsg = ''; }
     try
     {
       // event.button == 2 // right, not supported onCommand
@@ -279,15 +273,13 @@ onCommand: function(event)
       {
         this.updateIcons();
       }
-    } catch(e) { this.handleError(e); }
-    if (this.debugMode && this.errMsg != '') { alert(this.errMsg); this.errMsg = ''; }
+    } catch (e) { try { this.handleError(e); } catch (e) {} }
     return true;
   },
 
 
 onCommandFavorites: function(event)
   {
-    if (this.debugMode && this.errMsg != '') { alert(this.errMsg); this.errMsg = ''; }
     try
     {
       // event.button == 2 // right, not supported onCommand
@@ -314,14 +306,12 @@ onCommandFavorites: function(event)
       {
         BrowserReload();
       }
-    } catch(e) { this.handleError(e); }
-    if (this.debugMode && this.errMsg != '') { alert(this.errMsg); this.errMsg = ''; }
+    } catch (e) { try { this.handleError(e); } catch (e) {} }
     return true;
   },
 
 reset_pref_click: function(event, whichReset)
   {
-    if (this.debugMode && this.errMsg != '') { alert(this.errMsg); this.errMsg = ''; }
     try
     {
       var optionField = document.getElementById(this.qj_Option_Pref_RegEx + whichReset);
@@ -329,8 +319,7 @@ reset_pref_click: function(event, whichReset)
       {
         optionField.value = optionField.defaultValue;
       }
-    } catch(e) { this.handleError(e); }
-    if (this.debugMode && this.errMsg != '') { alert(this.errMsg); this.errMsg = ''; }
+    } catch (e) { try { this.handleError(e); } catch (e) {} }
     return true;
   },
 
@@ -349,6 +338,7 @@ GetTypeFromId: function(id)
 
 updateIcons: function()
   {
+    //this.consoleLog('updateIcons');
     if(!this.massToggle)
     {
       //Set the icons
@@ -422,7 +412,7 @@ setFavIcon: function()
   if (differentIndicator) { differentIndicator.setAttribute("status", (anyEnabled && !allEnabled ? "1" : "0")); }
 },
 
-  // 
+  //
 GetPluginTags: function() {
   if (!("nsIPluginHost" in Components.interfaces)) return false;
   var phs = Components.classes["@mozilla.org/plugin/host;1"]
@@ -455,7 +445,7 @@ toggleEnabledIfFavorite: function(whichIcon, turnOn)
   // Sets plugin enabled status of plugin(s), whose name matches on aRegEx,
   // to aValue. aName is used for the "not found" message and is optional
 toggleEnabled: function(whichIcon) {
-  if (!Ci) { return false; } //This is not a normal window (example: options dialog)
+  if (typeof(Ci) == 'undefined') { return false; } //This is not a normal window (example: options dialog)
   var setEnabled = !this.isEnabled(whichIcon);
   if (whichIcon == this.qj_JS)
   {
@@ -486,7 +476,7 @@ toggleEnabled: function(whichIcon) {
   else
   {
     var aRegEx = this.GetRegEx(whichIcon);
-    if (!aRegEx) { if (this.debugMode) { alert('Invalid toggleEnabled: ' + whichIcon); } return; }
+    if (!aRegEx) { this.consoleLog('Invalid toggleEnabled: ' + whichIcon); return; }
     var plugins = this.GetPluginTags();
     if (!plugins) return;
     var found = false;
@@ -573,39 +563,31 @@ openTab: function(url, focusTab) {
 
 openHelp: function()
 {
-  try
-  {
+  try {
     this.openTab('http://quickjavaplugin.blogspot.com/2012/07/quickjava-quick-help.html',true);
-  } catch (e) { this.handleError(e); }
-  if (this.debugMode && this.errMsg != '') { alert(this.errMsg); this.errMsg = ''; }
+  } catch (e) { try { this.handleError(e); } catch (e) {} }
 },
 
  openHome: function()
 {
-  try
-  {
+  try {
     this.openTab('http://quickjavaplugin.blogspot.com/',true);
-  } catch (e) { this.handleError(e); }
-  if (this.debugMode && this.errMsg != '') { alert(this.errMsg); this.errMsg = ''; }
+  } catch (e) { try { this.handleError(e); } catch (e) {} }
 },
 
-openDonate: function()
-{
-  try
-  {
+openDonate: function() {
+  try {
     this.openTab('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9DSQG8KAB95C6',true);
-  } catch (e) { this.handleError(e); }
-  if (this.debugMode && this.errMsg != '') { alert(this.errMsg); this.errMsg = ''; }
+  } catch (e) { try { this.handleError(e); } catch (e) {} }
 },
 
-showOptions: function()
-  {
-    window.openDialog("chrome://quickjava/content/options.xul", "", "chrome,toolbar");
-  },
+showOptions: function() {
+  window.openDialog("chrome://quickjava/content/options.xul", "", "chrome,toolbar");
+},
 
   // Returns plugin enabled status of plugin(s), whose name matches on aRegEx
 isEnabled: function(whichIcon) {
-  if (!Ci) { return false; } //This is not a normal window (example: options dialog)
+  if (typeof(Ci) == 'undefined') { return false; } //This is not a normal window (example: options dialog)
   if (whichIcon == this.qj_JS) { return this.prefs.getBoolPref("javascript.enabled"); }
   if (whichIcon == this.qj_AI) { return (this.prefs.getCharPref("image.animation_mode") == "normal"); }
 
@@ -721,6 +703,11 @@ updateCustomStyle: function()
     }
   },
 
+consoleLog: function(msg, stackTrace)
+  {
+    if (window.console && window.console.log) { window.console.log('[QuickJava]: ' + msg); if (stackTrace && window.console.trace) { window.console.trace(); } }
+  },
+
 onLoadDetails: function(evt)
   {
     gBrowser.tabContainer.addEventListener("TabOpen", thatoneguydotnet.QuickJava.newTabOpened, false)
@@ -792,11 +779,15 @@ onLoadDetails: function(evt)
 
 onUnload: function(evt)
   {
-    this.PrefObserver.unregister();
-    this.PluginObserver.unregister();
-    window.removeEventListener("customizationchange", thatoneguydotnet.QuickJava.customizationChange, false);
-    gBrowser.tabContainer.removeEventListener("TabOpen", thatoneguydotnet.QuickJava.newTabOpened, false)
-  },
+    try
+    {
+      if (typeof(Ci) == 'undefined') { return false; } //This is not a normal window (example: options dialog)
+      if (thatoneguydotnet.QuickJava.PrefObserver && thatoneguydotnet.QuickJava.PrefObserver.unregister) { thatoneguydotnet.QuickJava.PrefObserver.unregister(); }
+      if (thatoneguydotnet.QuickJava.PluginObserver && thatoneguydotnet.QuickJava.PluginObserver.unregister) { thatoneguydotnet.QuickJava.PluginObserver.unregister(); }
+      window.removeEventListener("customizationchange", thatoneguydotnet.QuickJava.customizationChange, false);
+      if (gBrowser) { gBrowser.tabContainer.removeEventListener("TabOpen", thatoneguydotnet.QuickJava.newTabOpened, false); }
+    } catch (e) { try { this.handleError(e); } catch (e) {} }
+  }
 };
 
 window.addEventListener('load', function(e) { thatoneguydotnet.QuickJava.onLoad(e); },false);
