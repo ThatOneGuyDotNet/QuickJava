@@ -650,7 +650,8 @@ updateCustomStyle: function()
     {
       for(var i = 0; i < document.styleSheets.length;i++)
       {
-        if(document.styleSheets[i].href.match(".*quickjava\.css$"))
+        if (document.styleSheets[i].href
+            && document.styleSheets[i].href.match(".*quickjava\.css$"))
         {
           this.myStyleSheet = document.styleSheets[i];
         }
