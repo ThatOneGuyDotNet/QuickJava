@@ -16,7 +16,7 @@
 <!ENTITY quickjava.tooltip.silverlight    "Enable/Disable SilverLight">
 <!ENTITY quickjava.tooltip.animage        "Enable/Disable Animated Images">
 <!ENTITY quickjava.tooltip.cookies        "Enable/Disable Cookies">
-<!ENTITY quickjava.tooltip.images         "Enable/Disable Automatica Image Loading">
+<!ENTITY quickjava.tooltip.images         "Enable/Disable Automatic Image Loading">
 <!ENTITY quickjava.tooltip.css            "Toggle Style">
 <!ENTITY quickjava.tooltip.proxy          "Toggle Proxy">
 <!ENTITY quickjava.tooltip.favorites      "Toggle Favorites">
