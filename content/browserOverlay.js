@@ -13,7 +13,7 @@ onLoad: function(evt)
     this.alertPluginNames               = false;
     this.alertPluginNamesOnMatch        = false;
     this.firstInstallUrl                = 'http://quickjavaplugin.blogspot.com/2012/07/quickjava-quick-help.html';
-    this.newVersionUrl                  = 'http://quickjavaplugin.blogspot.com/2013/09/quickjava-20.html';
+    this.newVersionUrl                  = '';
 
     this.curVersion                     = ''; //do not initialize, automatically loaded
     this.massToggle                     = false; //program use, do not initialize to true
