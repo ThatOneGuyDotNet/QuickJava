@@ -162,15 +162,15 @@
       </toolbarbutton>
       <toolbarbutton id="QuickJava_ToolbarIcon_Container_Favorites_Menu" type="menu">
         <menupopup id='QuickJava_ToolbarIcon_Container_Favorites_Menu'>
-           <menuitem label="JS" value="JS" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_JavaScript" type="checkbox" />
-           <menuitem label="J" value="J" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Java" type="checkbox" />
-           <menuitem label="F" value="F" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Flash" type="checkbox" />
-           <menuitem label="SL" value="SL" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Silverlight" type="checkbox" />
-           <menuitem label="A" value="A" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_AnimatedImage" type="checkbox" />
-           <menuitem label="C" value="C" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Cookies" type="checkbox" />
-           <menuitem label="I" value="I" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Images" type="checkbox" />
-           <menuitem label="CS" value="CS" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_CSS" type="checkbox" />
-           <menuitem label="P" value="P" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Proxy" type="checkbox" />
+           <menuitem label="JS" value="JS" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_JavaScript" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+           <menuitem label="J" value="J" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Java" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+           <menuitem label="F" value="F" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Flash" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+           <menuitem label="SL" value="SL" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Silverlight" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+           <menuitem label="A" value="A" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_AnimatedImage" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+           <menuitem label="C" value="C" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Cookies" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+           <menuitem label="I" value="I" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Images" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+           <menuitem label="CS" value="CS" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_CSS" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+           <menuitem label="P" value="P" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Proxy" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
         </menupopup>
       </toolbarbutton>
     </toolbaritem>
