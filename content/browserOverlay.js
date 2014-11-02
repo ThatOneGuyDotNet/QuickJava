@@ -121,7 +121,7 @@ versionCheck: function(addon)
     }
   },
   
-installButton: function(toolbarId, id, afterId)
+installButton: function(toolbarId, id, afterId) 
   {
     if (!document.getElementById(id)) {
         var toolbar = document.getElementById(toolbarId);
@@ -162,7 +162,6 @@ setStartupValues: function(startupType)
     this.setStartupValue(this.qj_C);
     this.setStartupValue(this.qj_CS);
   }
-  this.updateIcons();
 },
 setStartupValue: function(whichIcon)
 {
@@ -260,8 +259,6 @@ onClick: function(event)
         this.updateIcons();
       }
     } catch (e) { try { this.handleError(e); } catch (e) {} }
-    //If it's part of the favorites dropdown don't toggle the remaining items
-    event.cancelBubble = true;
     return true;
   },
 
@@ -278,8 +275,6 @@ onCommand: function(event)
         this.updateIcons();
       }
     } catch (e) { try { this.handleError(e); } catch (e) {} }
-    //If it's part of the favorites dropdown don't toggle the remaining items
-    event.cancelBubble = true;
     return true;
   },
 
@@ -344,7 +339,6 @@ GetTypeFromId: function(id)
 
 updateIcons: function()
   {
-      this.addMenupopupToNavButtonIfNeeded();
     //this.consoleLog('updateIcons');
     if(!this.massToggle)
     {
@@ -366,10 +360,7 @@ updateIcons: function()
 
 customizationChange: function()
   {
-    try
-    {
-      thatoneguydotnet.QuickJava.updateIcons();
-    } catch (e) { try { this.handleError(e); } catch (e) {} }
+    thatoneguydotnet.QuickJava.updateIcons();
   },
 
 GetRegEx: function(whichIcon)
@@ -498,7 +489,7 @@ toggleEnabled: function(whichIcon) {
         {
                 plugins[i].enabledState = (setEnabled ? Ci.nsIPluginTag.STATE_ENABLED : Ci.nsIPluginTag.STATE_DISABLED);
 //Doesn't seem to be working, Flash still runs on the test page w/o asking after setting to CLICKTOPLAY
-                if (setEnabled && this.prefs.getBoolPref("thatoneguydotnet.QuickJava.enabledState.ClickToPlay")) {
+                if (setEnabled && this.prefs.getBoolPref("thatoneguydotnet.QuickJava.enabledState.ClickToPlay")) { 
             plugins[i].enabledState = Ci.nsIPluginTag.STATE_CLICKTOPLAY;
 //alert(plugins[i].enabledState + ', ' + Ci.nsIPluginTag.STATE_CLICKTOPLAY);
           }
@@ -571,35 +562,27 @@ openTab: function(url, focusTab) {
   }
 },
 
-openHelp: function(event)
+openHelp: function()
 {
   try {
-    //If it's part of the favorites dropdown don't toggle the remaining items
-    event.cancelBubble = true;
     this.openTab('http://quickjavaplugin.blogspot.com/2012/07/quickjava-quick-help.html',true);
   } catch (e) { try { this.handleError(e); } catch (e) {} }
 },
 
- openHome: function(event)
+ openHome: function()
 {
   try {
-    //If it's part of the favorites dropdown don't toggle the remaining items
-    event.cancelBubble = true;
     this.openTab('http://quickjavaplugin.blogspot.com/',true);
   } catch (e) { try { this.handleError(e); } catch (e) {} }
 },
 
-openDonate: function(event) {
+openDonate: function() {
   try {
-    //If it's part of the favorites dropdown don't toggle the remaining items
-    event.cancelBubble = true;
     this.openTab('https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9DSQG8KAB95C6',true);
   } catch (e) { try { this.handleError(e); } catch (e) {} }
 },
 
-showOptions: function(event) {
-  //If it's part of the favorites dropdown don't toggle the remaining items
-  event.cancelBubble = true;
+showOptions: function() {
   window.openDialog("chrome://quickjava/content/options.xul", "", "chrome,toolbar");
 },
 
@@ -612,7 +595,7 @@ isEnabled: function(whichIcon) {
   if (whichIcon == this.qj_C)  { return (this.prefs.getIntPref("network.cookie.cookieBehavior") != 2); }
 
   if (whichIcon == this.qj_I)  { return (this.prefs.getIntPref("permissions.default.image") == 1); }
-  if (whichIcon == this.qj_CS) { return !(getMarkupDocumentViewer && getMarkupDocumentViewer().authorStyleDisabled); }
+  if (whichIcon == this.qj_CS) { return !(getMarkupDocumentViewer().authorStyleDisabled); }
   if (whichIcon == this.qj_P)  { return (this.prefs.getIntPref("network.proxy.type") != 0); }
 
   var aRegEx = this.GetRegEx(whichIcon);
@@ -661,40 +644,6 @@ isEnabledAnyFavorites: function()
       || (this.prefs.getBoolPref(this.qj_Prefix_Pref_Fav + this.qj_C) && this.isEnabled(this.qj_C))
       || (this.prefs.getBoolPref(this.qj_Prefix_Pref_Fav + this.qj_CS) && this.isEnabled(this.qj_CS));
 },
-
-  addMenupopupToNavButtonIfNeeded: function() {
-     var navButton = document.getElementById('QuickJava_ToolbarIcon_Container_Favorites_Item2');
-
-     if (navButton) {
-         var toolbarButton = document.getAnonymousElementByAttribute(navButton, 'anonid', 'button');
-//         var mainMenuBox = document.getElementById('QJ_fav_icon_hbox');
-         if (toolbarButton /*&& mainMenuBox*/)
-         {
-           var menuBoxes = document.getElementById('QuickJava_ToolbarIcon_Favorites_Label');
-           if (!menuBoxes) {
-             //      <label id="QuickJava_ToolbarIcon_Proxy" class="quickjava-button" value="P" />
-                const XUL_NS = "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
-                var item = document.createElementNS(XUL_NS, "label"); // create a new XUL menuitem
-                item.setAttribute("id", 'QuickJava_ToolbarIcon_Favorites_Label');
-                item.setAttribute("class", 'quickjava-button');
-                item.setAttribute("value", 'QJ');
-                navButton.insertBefore(item, navButton.firstChild);
-                this.consoleLog('added' + (new XMLSerializer()).serializeToString(item));
-               //toolbarButton.appendChild(mainMenuBox.cloneNode(true));
-           }
-         } else { this.consoleLog('missing toolbar'); }
-
-/*         var mainMenu = document.getElementById(this.qj_Prefix_Tb_FM_Container);
-         if (mainMenu)
-         {
-           var menuPopups = navButton.getElementsByTagName('menupopup');
-           if (menuPopups.length == 0) {
-               navButton.appendChild(mainMenu.cloneNode(true));
-           }
-         } else { this.consoleLog('missing mainmenu'); }  */
-     } else { this.consoleLog('missing navbutton'); }
-     //'missing items \n navButton=' + navButton + '\n mainMenu= ' + mainMenu + ' \n mainMenuBox=' + mainMenuBox
-  },
 
 updateCustomStyle: function()
   {
@@ -844,5 +793,4 @@ onUnload: function(evt)
 };
 
 window.addEventListener('load', function(e) { thatoneguydotnet.QuickJava.onLoad(e); },false);
-window.addEventListener('aftercustomization', function(e) { thatoneguydotnet.QuickJava.customizationChange(e); },false);
 window.addEventListener('unload',function(e) { thatoneguydotnet.QuickJava.onUnload(e); },false);
