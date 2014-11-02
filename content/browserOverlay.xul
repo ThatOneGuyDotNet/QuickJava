@@ -4,13 +4,13 @@
 <!DOCTYPE overlay SYSTEM "chrome://quickjava/locale/quickjava.dtd">
 
 <overlay id="quickjava-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-  
+
   <script type="application/x-javascript" src="chrome://quickjava/content/browserOverlay.js"/>
-  
+
   <stringbundleset id="stringbundleset">
     <stringbundle id="quickjava-strings" src="chrome://quickjava/locale/quickjava.properties"/>
   </stringbundleset>
-  
+
   <statusbar id="status-bar">
     
     <statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_JavaScript" tooltiptext="&quickjava.tooltip.javascript;" onclick="thatoneguydotnet.QuickJava.onClick(event);" >
@@ -102,11 +102,9 @@
         </vbox>
       </hbox>
     </statusbarpanel>
-    
   </statusbar>
-  
-  <toolbarpalette id="BrowserToolbarPalette">
 
+  <toolbarpalette id="BrowserToolbarPalette">
     <toolbarbutton id="QuickJava_ToolbarIcon_Container_JavaScript" title="&quickjava.javascript;"
       oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.javascript;" context="quickjava_contextmenu">
       <label id="QuickJava_ToolbarIcon_JavaScript" class="quickjava-button" value="JS" />
@@ -136,7 +134,7 @@
       oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.cookies;" context="quickjava_contextmenu">
       <label id="QuickJava_ToolbarIcon_Cookies" class="quickjava-button" value="C" />
     </toolbarbutton>
-    
+
     <toolbarbutton id="QuickJava_ToolbarIcon_Container_Images" label="&quickjava.images;"
       oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.images;" context="quickjava_contextmenu" >
       <label id="QuickJava_ToolbarIcon_Images" class="quickjava-button" value="I" />
@@ -152,32 +150,29 @@
       <label id="QuickJava_ToolbarIcon_Proxy" class="quickjava-button" value="P" />
     </toolbarbutton>
 
-    <toolbaritem id="QuickJava_ToolbarIcon_Container_Favorites_Item" label="&quickjava.favorites;">
-      <toolbarbutton id="QuickJava_ToolbarIcon_Container_Favorites" label="&quickjava.favorites;"
-       oncommand="thatoneguydotnet.QuickJava.onCommandFavorites(event);" tooltiptext="&quickjava.tooltip.favorites;" context="quickjava_contextmenu">
-        <hbox>
-          <label id="QuickJava_ToolbarIcon_Favorites" class="quickjava-button" value="QJ" />
-          <label id="QuickJava_ToolbarIcon_Favorites_Different" class="quickjava-favorites-different" value="!" />
-        </hbox>
-      </toolbarbutton>
-      <toolbarbutton id="QuickJava_ToolbarIcon_Container_Favorites_Menu" type="menu">
-        <menupopup id='QuickJava_ToolbarIcon_Container_Favorites_Menu'>
-           <menuitem label="JS" value="JS" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_JavaScript" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
-           <menuitem label="J" value="J" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Java" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
-           <menuitem label="F" value="F" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Flash" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
-           <menuitem label="SL" value="SL" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Silverlight" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
-           <menuitem label="A" value="A" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_AnimatedImage" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
-           <menuitem label="C" value="C" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Cookies" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
-           <menuitem label="I" value="I" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Images" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
-           <menuitem label="CS" value="CS" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_CSS" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
-           <menuitem label="P" value="P" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Proxy" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
-        </menupopup>
-      </toolbarbutton>
-    </toolbaritem>
+    <toolbarbutton id="QuickJava_ToolbarIcon_Container_Favorites_Item2" label="QuickJava"  class="quickjava-button"
+     oncommand="thatoneguydotnet.QuickJava.onCommandFavorites(event);" tooltiptext="&quickjava.tooltip.favorites;" context="quickjava_contextmenu"
+     type="menu-button" removable="true">
+      <menupopup>
+         <menuitem label="JS" value="JS" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_JavaScript" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+         <menuitem label="J" value="J" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Java" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+         <menuitem label="F" value="F" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Flash" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+         <menuitem label="SL" value="SL" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Silverlight" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+         <menuitem label="A" value="A" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_AnimatedImage" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+         <menuitem label="C" value="C" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Cookies" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+         <menuitem label="I" value="I" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Images" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+         <menuitem label="CS" value="CS" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_CSS" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+         <menuitem label="P" value="P" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Proxy" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+         <menuseparator/>
+         <menuitem label="&quickjava.options.links.home;" oncommand="thatoneguydotnet.QuickJava.openHome(event)"/>
+         <menuitem label="&quickjava.options.links.help;" oncommand="thatoneguydotnet.QuickJava.openHelp(event)"/>
+         <menuitem label="&quickjava.options.links.donate;" oncommand="thatoneguydotnet.QuickJava.openDonate(event)"/>
+         <menuitem label="&quickjava.context.options;" oncommand="thatoneguydotnet.QuickJava.showOptions(event)"/>
+      </menupopup>
+    </toolbarbutton>
   </toolbarpalette>
 
   <popupset>
-
     <tooltip id="QuickJava_status_tip_JavaScript" noautohide="true" orient="horizontal">
       <hbox>
         <description value="&quickjava.tooltip.javascript;" id="QuickJava_status_tip_desc_JavaScript"/>
@@ -207,7 +202,7 @@
         <description value="&quickjava.tooltip.animage;" id="QuickJava_status_tip_desc_AnimatedImage"/>
       </hbox>
     </tooltip>
-    
+
     <tooltip id="QuickJava_status_tip_Cookies" noautohide="true" orient="horizontal">
       <hbox>
         <description value="&quickjava.tooltip.cookies;" id="QuickJava_status_tip_desc_Cookies"/>
@@ -231,15 +226,21 @@
         <description value="&quickjava.tooltip.proxy;" id="QuickJava_status_tip_desc_Proxy"/>
       </hbox>
     </tooltip>
-    
+
     <menupopup id="quickjava_contextmenu">
-      <menuitem label="&quickjava.context.refresh;" oncommand="thatoneguydotnet.QuickJava.updateIcons()"/>
-      <menuitem label="&quickjava.options.links.home;" oncommand="thatoneguydotnet.QuickJava.openHome()"/>
-      <menuitem label="&quickjava.options.links.help;" oncommand="thatoneguydotnet.QuickJava.openHelp()"/>
-      <menuitem label="&quickjava.options.links.donate;" oncommand="thatoneguydotnet.QuickJava.openDonate()"/>
-      <menuitem label="&quickjava.context.options;" default="true" oncommand="thatoneguydotnet.QuickJava.showOptions()"/>
+      <menuitem label="&quickjava.context.refresh;" oncommand="thatoneguydotnet.QuickJava.updateIcons(event)"/>
+      <menuitem label="&quickjava.options.links.home;" oncommand="thatoneguydotnet.QuickJava.openHome(event)"/>
+      <menuitem label="&quickjava.options.links.help;" oncommand="thatoneguydotnet.QuickJava.openHelp(event)"/>
+      <menuitem label="&quickjava.options.links.donate;" oncommand="thatoneguydotnet.QuickJava.openDonate(event)"/>
+      <menuitem label="&quickjava.context.options;" default="true" oncommand="thatoneguydotnet.QuickJava.showOptions(event)"/>
     </menupopup>
 
+
+    <hbox id="QJ_fav_icons_container" hidden="true">
+      <hbox id="QJ_fav_icon_hbox0">
+        <label id="QuickJava_ToolbarIcon_Favorites" class="quickjava-button" value="QJ" />
+        <label id="QuickJava_ToolbarIcon_Favorites_Different" class="quickjava-favorites-different" value="!" />
+      </hbox>
+    </hbox>
   </popupset>
-  
 </overlay>
