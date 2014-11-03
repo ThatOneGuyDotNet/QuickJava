@@ -5,6 +5,7 @@
 //from the Add-on bar and/or Toolbar.
 //
 //Version History
+//Version 2.0.5 Fixed a bug when toggling CSS
 //Version 2.0.4 Fixed a bug when using the dropdown of the QJ Favorites to toggle settings
 //Version 2.0.3 Fixed a bug causing issues with other addons.
 //Version 2.0.2 Major update!  Favorite toolbar button added (auto-install for new users or 1.8.0 and below).  Middle click only toggles visible status bar values.  Customizable startup options.  Update icons after customization.

@@ -121,7 +121,7 @@ versionCheck: function(addon)
     }
   },
   
-installButton: function(toolbarId, id, afterId) 
+installButton: function(toolbarId, id, afterId)
   {
     if (!document.getElementById(id)) {
         var toolbar = document.getElementById(toolbarId);
@@ -340,6 +340,14 @@ GetTypeFromId: function(id)
 updateIcons: function()
   {
     //this.consoleLog('updateIcons');
+    //do as setTimeout so any other processes can finish first
+    setTimeout('thatoneguydotnet.QuickJava.updateIconsNow();',10);
+    this.updateIconsNow();
+  },
+
+updateIconsNow: function()
+  {
+    //this.consoleLog('updateIconsNow');
     if(!this.massToggle)
     {
       //Set the icons
@@ -520,6 +528,8 @@ checkForReload: function(whichIcon)
 {
   return this.prefs.getBoolPref(this.qj_Prefix_Pref_Reload + whichIcon);
 },
+
+
 setStyleDisabledExtended: function(turnOff)
   {
     if (turnOff)
@@ -537,7 +547,18 @@ setStyleDisabledExtended: function(turnOff)
     {
       if ("gPageStyleMenu" in window)
       {
-        gPageStyleMenu.switchStyleSheet('');
+        var setSheet = '';
+        var firstSheet = '';
+        var curSheetAry = gPageStyleMenu.getAllStyleSheets();
+        for (curSheetIdx in curSheetAry) {
+          //this.consoleLog('gPageStyleMenu *' + curSheetAry[curSheetIdx].title + '*');
+          setSheet = curSheetAry[curSheetIdx].title;
+          if (curSheetAry[curSheetIdx].title == 'screen') { break; }
+          if (firstSheet == '') { firstSheet =  setSheet; }
+        }
+        //if we didn't find one named 'screen' then use the first one we found
+        if (setSheet != 'screen') { setScreen = firstSheet; }
+        gPageStyleMenu.switchStyleSheet(setSheet);
       }
       else
       {
