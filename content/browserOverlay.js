@@ -366,11 +366,6 @@ updateIconsNow: function()
     return true;
   },
 
-customizationChange: function()
-  {
-    thatoneguydotnet.QuickJava.updateIcons();
-  },
-
 GetRegEx: function(whichIcon)
   {
     switch (whichIcon)
@@ -734,7 +729,22 @@ consoleLog: function(msg, stackTrace)
 onLoadDetails: function(evt)
   {
     gBrowser.tabContainer.addEventListener("TabOpen", thatoneguydotnet.QuickJava.newTabOpened, false)
-    window.addEventListener("customizationchange", thatoneguydotnet.QuickJava.customizationChange, false);
+    this.CUIListener = {
+      handler: function(aWidgetId) { 
+        if (aWidgetId.indexOf('QuickJava') >= 0) {
+          thatoneguydotnet.QuickJava.consoleLog(aWidgetId);
+          /* Our toolbar icons may have been added or removed to/from a toolbar or panel */
+          thatoneguydotnet.QuickJava.updateIcons();
+        }
+      },
+      onWidgetAdded: function(aWidgetId) { this.handler(aWidgetId); },
+      onWidgetRemoved: function(aWidgetId) { this.handler(aWidgetId); },
+      onAreaNodeRegistered: function() { this.handler('QuickJava'); },
+      onAreaNodeUnregstered: function() { this.handler('QuickJava'); }
+    };
+    Components.utils.import("resource:///modules/CustomizableUI.jsm");
+    CustomizableUI.addListener(this.CUIListener);
+
     this.PluginObserver =
     {
     register: function()
@@ -807,8 +817,8 @@ onUnload: function(evt)
       if (typeof(Ci) == 'undefined') { return false; } //This is not a normal window (example: options dialog)
       if (thatoneguydotnet.QuickJava.PrefObserver && thatoneguydotnet.QuickJava.PrefObserver.unregister) { thatoneguydotnet.QuickJava.PrefObserver.unregister(); }
       if (thatoneguydotnet.QuickJava.PluginObserver && thatoneguydotnet.QuickJava.PluginObserver.unregister) { thatoneguydotnet.QuickJava.PluginObserver.unregister(); }
-      window.removeEventListener("customizationchange", thatoneguydotnet.QuickJava.customizationChange, false);
       if (gBrowser) { gBrowser.tabContainer.removeEventListener("TabOpen", thatoneguydotnet.QuickJava.newTabOpened, false); }
+      if (this.CUIListener) { CustomizableUI.removeListener(this.CUIListener); }
     } catch (e) { try { this.handleError(e); } catch (e) {} }
   }
 };

@@ -5,6 +5,7 @@
 //from the Add-on bar and/or Toolbar.
 //
 //Version History
+//Version 2.0.6 Fixed a bug when customizing some toolbars, thanks to Quicksaver (the developer of the Puzzle Toolbar addon) for the code
 //Version 2.0.5 Fixed a bug when toggling CSS
 //Version 2.0.4 Fixed a bug when using the dropdown of the QJ Favorites to toggle settings
 //Version 2.0.3 Fixed a bug causing issues with other addons.
