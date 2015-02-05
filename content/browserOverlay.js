@@ -42,6 +42,7 @@ onLoad: function(evt)
       this.qj_Prefix_Tb_FM_Container = this.qj_Prefix_Tb_Container + 'Favorites_Menu_';
 
       this.qj_JS                  = 'JavaScript';
+      this.qj_WebGL               = 'WebGL';
       this.qj_J                   = 'Java';
       this.qj_F                   = 'Flash';
       this.qj_SL                  = 'Silverlight';
@@ -156,6 +157,7 @@ setStartupValues: function(startupType)
     this.setStartupValue(this.qj_I);
     this.setStartupValue(this.qj_J);
     this.setStartupValue(this.qj_JS);
+    this.setStartupValue(this.qj_WebGL);
     this.setStartupValue(this.qj_F);
     this.setStartupValue(this.qj_SL);
     this.setStartupValue(this.qj_AI);
@@ -249,6 +251,7 @@ onClick: function(event)
         this.toggleEnabledIfStatusbarVisible(this.qj_I);
         this.toggleEnabledIfStatusbarVisible(this.qj_J);
         this.toggleEnabledIfStatusbarVisible(this.qj_JS);
+        this.toggleEnabledIfStatusbarVisible(this.qj_WebGL);
         this.toggleEnabledIfStatusbarVisible(this.qj_F);
         this.toggleEnabledIfStatusbarVisible(this.qj_SL);
         this.toggleEnabledIfStatusbarVisible(this.qj_AI);
@@ -294,6 +297,7 @@ onCommandFavorites: function(event)
         doReload = (this.toggleEnabledIfFavorite(this.qj_I, turnOn) && this.checkForReload(this.qj_I)) || doReload;
         doReload = (this.toggleEnabledIfFavorite(this.qj_J, turnOn) && this.checkForReload(this.qj_J)) || doReload;
         doReload = (this.toggleEnabledIfFavorite(this.qj_JS, turnOn) && this.checkForReload(this.qj_JS)) || doReload;
+        doReload = (this.toggleEnabledIfFavorite(this.qj_WebGL, turnOn) && this.checkForReload(this.qj_WebGL)) || doReload;
         doReload = (this.toggleEnabledIfFavorite(this.qj_F, turnOn) && this.checkForReload(this.qj_F)) || doReload;
         doReload = (this.toggleEnabledIfFavorite(this.qj_SL, turnOn) && this.checkForReload(this.qj_SL)) || doReload;
         doReload = (this.toggleEnabledIfFavorite(this.qj_AI, turnOn) && this.checkForReload(this.qj_AI)) || doReload;
@@ -327,6 +331,7 @@ reset_pref_click: function(event, whichReset)
 GetTypeFromId: function(id)
   {
     if (id == this.qj_Prefix_Sb_Container + this.qj_JS || id == this.qj_Prefix_Tb_Container + this.qj_JS || id == this.qj_Prefix_Tb_FM_Container + this.qj_JS) { return this.qj_JS; }
+    if (id == this.qj_Prefix_Sb_Container + this.qj_WebGL || id == this.qj_Prefix_Tb_Container + this.qj_WebGL || id == this.qj_Prefix_Tb_FM_Container + this.qj_WebGL) { return this.qj_WebGL; }
     if (id == this.qj_Prefix_Sb_Container + this.qj_J  || id == this.qj_Prefix_Tb_Container + this.qj_J || id == this.qj_Prefix_Tb_FM_Container + this.qj_J)  { return this.qj_J; }
     if (id == this.qj_Prefix_Sb_Container + this.qj_F  || id == this.qj_Prefix_Tb_Container + this.qj_F || id == this.qj_Prefix_Tb_FM_Container + this.qj_F)  { return this.qj_F; }
     if (id == this.qj_Prefix_Sb_Container + this.qj_SL || id == this.qj_Prefix_Tb_Container + this.qj_SL || id == this.qj_Prefix_Tb_FM_Container + this.qj_SL) { return this.qj_SL; }
@@ -352,6 +357,7 @@ updateIconsNow: function()
     {
       //Set the icons
       this.setIcon(this.qj_JS, this.isEnabled(this.qj_JS));
+      this.setIcon(this.qj_WebGL, this.isEnabled(this.qj_WebGL));
       this.setIcon(this.qj_J,  this.isEnabled(this.qj_J));
       this.setIcon(this.qj_F,  this.isEnabled(this.qj_F));
       this.setIcon(this.qj_SL, this.isEnabled(this.qj_SL));
@@ -454,6 +460,10 @@ toggleEnabled: function(whichIcon) {
   if (whichIcon == this.qj_JS)
   {
     this.prefs.setBoolPref("javascript.enabled", setEnabled);
+  }
+  else if (whichIcon == this.qj_WebGL)
+  {
+    this.prefs.setBoolPref("webgl.disabled", !setEnabled);
   }
   else if (whichIcon == this.qj_AI)
   {
@@ -606,6 +616,7 @@ showOptions: function() {
 isEnabled: function(whichIcon) {
   if (typeof(Ci) == 'undefined') { return false; } //This is not a normal window (example: options dialog)
   if (whichIcon == this.qj_JS) { return this.prefs.getBoolPref("javascript.enabled"); }
+  if (whichIcon == this.qj_WebGL) { return this.prefs.getBoolPref("webgl.disabled") == false; }
   if (whichIcon == this.qj_AI) { return (this.prefs.getCharPref("image.animation_mode") == "normal"); }
 
   if (whichIcon == this.qj_C)  { return (this.prefs.getIntPref("network.cookie.cookieBehavior") != 2); }
@@ -641,6 +652,7 @@ isEnabledAllFavorites: function()
   return (!this.prefs.getBoolPref(this.qj_Prefix_Pref_Fav + this.qj_I) || this.isEnabled(this.qj_I))
       && (!this.prefs.getBoolPref(this.qj_Prefix_Pref_Fav + this.qj_J) || this.isEnabled(this.qj_J))
       && (!this.prefs.getBoolPref(this.qj_Prefix_Pref_Fav + this.qj_JS) || this.isEnabled(this.qj_JS))
+      && (!this.prefs.getBoolPref(this.qj_Prefix_Pref_Fav + this.qj_WebGL) || this.isEnabled(this.qj_WebGL))
       && (!this.prefs.getBoolPref(this.qj_Prefix_Pref_Fav + this.qj_F) || this.isEnabled(this.qj_F))
       && (!this.prefs.getBoolPref(this.qj_Prefix_Pref_Fav + this.qj_SL) || this.isEnabled(this.qj_SL))
       && (!this.prefs.getBoolPref(this.qj_Prefix_Pref_Fav + this.qj_AI) || this.isEnabled(this.qj_AI))
@@ -654,6 +666,7 @@ isEnabledAnyFavorites: function()
   return (this.prefs.getBoolPref(this.qj_Prefix_Pref_Fav + this.qj_I) && this.isEnabled(this.qj_I))
       || (this.prefs.getBoolPref(this.qj_Prefix_Pref_Fav + this.qj_J) && this.isEnabled(this.qj_J))
       || (this.prefs.getBoolPref(this.qj_Prefix_Pref_Fav + this.qj_JS) && this.isEnabled(this.qj_JS))
+      || (this.prefs.getBoolPref(this.qj_Prefix_Pref_Fav + this.qj_WebGL) && this.isEnabled(this.qj_WebGL))
       || (this.prefs.getBoolPref(this.qj_Prefix_Pref_Fav + this.qj_F) && this.isEnabled(this.qj_F))
       || (this.prefs.getBoolPref(this.qj_Prefix_Pref_Fav + this.qj_SL) && this.isEnabled(this.qj_SL))
       || (this.prefs.getBoolPref(this.qj_Prefix_Pref_Fav + this.qj_AI) && this.isEnabled(this.qj_AI))
