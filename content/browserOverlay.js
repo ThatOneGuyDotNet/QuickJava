@@ -13,7 +13,7 @@ onLoad: function(evt)
     this.alertPluginNames               = false;
     this.alertPluginNamesOnMatch        = false;
     this.firstInstallUrl                = 'http://quickjavaplugin.blogspot.com/2012/07/quickjava-quick-help.html';
-    this.newVersionUrl                  = '';
+    this.newVersionUrl                  = 'http://quickjavaplugin.blogspot.com/2012/07/quickjava-quick-help.html';
 
     this.curVersion                     = ''; //do not initialize, automatically loaded
     this.massToggle                     = false; //program use, do not initialize to true
@@ -89,9 +89,11 @@ onLoad: function(evt)
 handleError: function(e)
   {
     this.consoleLog("An exception occurred in the QuickJava script. Error name: " + e.name
-    + ".\n\n Error description: " + e.description
-    + ".\n\n Error number: " + e.number
-    + ".\n\n Error message: " + e.message, true);
+    + ".\n Error description: " + e.description
+    + ".\n Error number: " + e.number
+    + ".\n Error message: " + e.message
+    + ".\n Stack: " + e.stack
+    , true);
   },
 firstStartup: function(e)
   {
@@ -101,9 +103,12 @@ firstStartup: function(e)
   },
 versionCheck: function(addon)
   {
-    if (this.curVersion != addon.version)
+    //strip out any non-numeric or decimal characters (such as "signed" text)
+    var curVersionClean = this.curVersion.replace(/[^\d.]/g, '');
+    var addonVersionClean = addon.version.replace(/[^\d.]/g, '');
+    if (curVersionClean != addonVersionClean)
     {
-      if (this.curVersion == '')
+      if (curVersionClean == '')
       {
         this.installButton("nav-bar", "QuickJava_ToolbarIcon_Container_Favorites_Item");
         this.updateIcons();
@@ -116,8 +121,8 @@ versionCheck: function(addon)
       {
         this.openTab(this.newVersionUrl,true);
       }
-      this.curVersion = addon.version;
-      this.prefs.setCharPref("thatoneguydotnet.QuickJava.curVersion", this.curVersion)
+      curVersionClean = addonVersionClean;
+      this.prefs.setCharPref("thatoneguydotnet.QuickJava.curVersion", curVersionClean)
     }
   },
   
@@ -384,6 +389,8 @@ GetRegEx: function(whichIcon)
 
 setIcon: function(whichIcon, onOff)
   {
+  try
+  {
     var isHidden      = this.prefs.getBoolPref(this.qj_Prefix_Pref_Hide + whichIcon);
     var statusNumber  = (onOff == 1 ? "1" : (onOff == 0 ? "0" : "-2"));
     var chkBx         = document.getElementById(this.qj_Prefix_Tb + whichIcon);
@@ -400,6 +407,7 @@ setIcon: function(whichIcon, onOff)
       favDropDown.setAttribute("checked", onOff == 1 ? true : false);
       favDropDown.setAttribute("style", this.prefs.getBoolPref(this.qj_Prefix_Pref_Fav + whichIcon) ? "" : "display: none;");
     }
+  } catch (e) { try { this.handleError(e); } catch (e) {} }
   },
 
 setFavIcon: function()
@@ -450,6 +458,7 @@ toggleEnabledIfFavorite: function(whichIcon, turnOn)
   // to aValue. aName is used for the "not found" message and is optional
 toggleEnabled: function(whichIcon) {
   if (typeof(Ci) == 'undefined') { return false; } //This is not a normal window (example: options dialog)
+
   var setEnabled = !this.isEnabled(whichIcon);
   if (whichIcon == this.qj_JS)
   {
@@ -510,9 +519,10 @@ toggleEnabled: function(whichIcon) {
       var wm = Components.classes['@mozilla.org/appshell/window-mediator;1']
       .getService(Components.interfaces.nsIWindowMediator);
       var window = wm.getMostRecentWindow(null);
-      msgAlert(window, "No " + aName + " plugin found!");
+      this.consoleLog(window, "No " + aName + " plugin found!");
     }
   }
+
   this.updateIcons();
   if(!this.massToggle && this.checkForReload(whichIcon))
   {
@@ -544,7 +554,7 @@ setStyleDisabledExtended: function(turnOff)
       {
         var setSheet = '';
         var firstSheet = '';
-        var curSheetAry = gPageStyleMenu.getAllStyleSheets();
+        var curSheetAry = gPageStyleMenu.getBrowserStyleSheets();
         for (curSheetIdx in curSheetAry) {
           //this.consoleLog('gPageStyleMenu *' + curSheetAry[curSheetIdx].title + '*');
           setSheet = curSheetAry[curSheetIdx].title;
@@ -604,6 +614,8 @@ showOptions: function() {
 
   // Returns plugin enabled status of plugin(s), whose name matches on aRegEx
 isEnabled: function(whichIcon) {
+try
+{
   if (typeof(Ci) == 'undefined') { return false; } //This is not a normal window (example: options dialog)
   if (whichIcon == this.qj_JS) { return this.prefs.getBoolPref("javascript.enabled"); }
   if (whichIcon == this.qj_AI) { return (this.prefs.getCharPref("image.animation_mode") == "normal"); }
@@ -611,7 +623,12 @@ isEnabled: function(whichIcon) {
   if (whichIcon == this.qj_C)  { return (this.prefs.getIntPref("network.cookie.cookieBehavior") != 2); }
 
   if (whichIcon == this.qj_I)  { return (this.prefs.getIntPref("permissions.default.image") == 1); }
-  if (whichIcon == this.qj_CS) { return !(getMarkupDocumentViewer().authorStyleDisabled); }
+
+  if (whichIcon == this.qj_CS) {
+    var docViewer = getMarkupDocumentViewer();
+    return !(docViewer.authorStyleDisabled);
+  }
+
   if (whichIcon == this.qj_P)  { return (this.prefs.getIntPref("network.proxy.type") != 0); }
 
   var aRegEx = this.GetRegEx(whichIcon);
@@ -632,6 +649,7 @@ isEnabled: function(whichIcon) {
       }
     }
   }
+} catch (e) { try { this.handleError(e); } catch (e) {} }
   return 0;
 },
 

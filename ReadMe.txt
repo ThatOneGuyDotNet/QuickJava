@@ -5,6 +5,8 @@
 //from the Add-on bar and/or Toolbar.
 //
 //Version History
+//Version 2.0.8 Add error handling due to CSS method sometimes throwing an exception, have not figured out what causes this yet
+//Version 2.0.7 Changed how the stylesheets are being read due to change in FF44
 //Version 2.0.6 Fixed a bug when customizing some toolbars, thanks to Quicksaver (the developer of the Puzzle Toolbar addon) for the code
 //Version 2.0.5 Fixed a bug when toggling CSS
 //Version 2.0.4 Fixed a bug when using the dropdown of the QJ Favorites to toggle settings

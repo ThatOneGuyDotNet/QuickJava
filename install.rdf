@@ -5,7 +5,7 @@ xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 	<Description about="urn:mozilla:install-manifest">
 		<em:id>{E6C1199F-E687-42da-8C24-E7770CC3AE66}</em:id>
 		<em:name>QuickJava</em:name>
-		<em:version>2.0.6</em:version>
+		<em:version>2.0.8</em:version>
 		<em:description>Enable/Disable Javascript, Java, Flash, Silverlight, Animated Images, Cookies, Images, CSS, and Proxy from Toolbar.</em:description>
 		<em:creator>Doug Greene</em:creator>
 		<em:homepageURL>http://quickjavaplugin.blogspot.com/</em:homepageURL>
@@ -15,8 +15,8 @@ xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 		<em:targetApplication>
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-				<em:minVersion>33.0</em:minVersion>
-				<em:maxVersion>36.*</em:maxVersion>
+				<em:minVersion>44.0</em:minVersion>
+				<em:maxVersion>48.0</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 	        <em:translator>strel</em:translator>	<!-- es -->
