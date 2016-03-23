@@ -4,6 +4,8 @@
 //Allows quick enable and disable of Java, Javascript, Cookies, Image Animations, Flash, Silverlight, Images, Stylesheets and Proxy
 //from the Add-on bar and/or Toolbar.
 //
+//License: https://www.mozilla.org/en-US/MPL/1.1/
+//
 //Version History
 //Version 2.0.8 Add error handling due to CSS method sometimes throwing an exception, have not figured out what causes this yet
 //Version 2.0.7 Changed how the stylesheets are being read due to change in FF44
