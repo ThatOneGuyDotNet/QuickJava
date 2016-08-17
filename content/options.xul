@@ -11,6 +11,7 @@
     <script type="application/x-javascript" src="chrome://quickjava/content/browserOverlay.js" />
     <preferences>
       <preference id="thatoneguydotnet_quickjava_pref_hidestatus_javascript"          name="thatoneguydotnet.QuickJava.hidestatus.JavaScript"     type="bool"/>
+      <preference id="thatoneguydotnet_quickjava_pref_hidestatus_webgl"               name="thatoneguydotnet.QuickJava.hidestatus.WebGL"          type="bool"/>
       <preference id="thatoneguydotnet_quickjava_pref_hidestatus_java"                name="thatoneguydotnet.QuickJava.hidestatus.Java"           type="bool"/>
       <preference id="thatoneguydotnet_quickjava_pref_hidestatus_flash"               name="thatoneguydotnet.QuickJava.hidestatus.Flash"          type="bool"/>
       <preference id="thatoneguydotnet_quickjava_pref_hidestatus_silverlight"         name="thatoneguydotnet.QuickJava.hidestatus.Silverlight"    type="bool"/>
@@ -29,6 +30,7 @@
 
       <preference id="thatoneguydotnet_quickjava_pref_startupStatus_type"             name="thatoneguydotnet.QuickJava.startupStatus.type"           type="int"/>
       <preference id="thatoneguydotnet_quickjava_pref_startupStatus_javascript"       name="thatoneguydotnet.QuickJava.startupStatus.JavaScript"     type="int"/>
+      <preference id="thatoneguydotnet_quickjava_pref_startupStatus_webgl"            name="thatoneguydotnet.QuickJava.startupStatus.WebGL"          type="int"/>
       <preference id="thatoneguydotnet_quickjava_pref_startupStatus_java"             name="thatoneguydotnet.QuickJava.startupStatus.Java"           type="int"/>
       <preference id="thatoneguydotnet_quickjava_pref_startupStatus_flash"            name="thatoneguydotnet.QuickJava.startupStatus.Flash"          type="int"/>
       <preference id="thatoneguydotnet_quickjava_pref_startupStatus_silverlight"      name="thatoneguydotnet.QuickJava.startupStatus.Silverlight"    type="int"/>
@@ -41,6 +43,7 @@
       <preference id="thatoneguydotnet_quickjava_pref_favorites_differentDisplay"     name="thatoneguydotnet.QuickJava.favorites.differentDisplay"  type="int"/>
       <preference id="thatoneguydotnet_quickjava_pref_favorites_differentToggle"      name="thatoneguydotnet.QuickJava.favorites.differentToggle"   type="int"/>
       <preference id="thatoneguydotnet_quickjava_pref_favorites_javascript"           name="thatoneguydotnet.QuickJava.favorites.JavaScript"     type="bool"/>
+      <preference id="thatoneguydotnet_quickjava_pref_favorites_webgl"                name="thatoneguydotnet.QuickJava.favorites.WebGL"          type="bool"/>
       <preference id="thatoneguydotnet_quickjava_pref_favorites_java"                 name="thatoneguydotnet.QuickJava.favorites.Java"           type="bool"/>
       <preference id="thatoneguydotnet_quickjava_pref_favorites_flash"                name="thatoneguydotnet.QuickJava.favorites.Flash"          type="bool"/>
       <preference id="thatoneguydotnet_quickjava_pref_favorites_silverlight"          name="thatoneguydotnet.QuickJava.favorites.Silverlight"    type="bool"/>
@@ -51,6 +54,7 @@
       <preference id="thatoneguydotnet_quickjava_pref_favorites_proxy"                name="thatoneguydotnet.QuickJava.favorites.Proxy"          type="bool"/>
 
       <preference id="thatoneguydotnet_quickjava_pref_reload_javascript"              name="thatoneguydotnet.QuickJava.reload.JavaScript"        type="bool"/>
+      <preference id="thatoneguydotnet_quickjava_pref_reload_webgl"                   name="thatoneguydotnet.QuickJava.reload.WebGL"             type="bool"/>
       <preference id="thatoneguydotnet_quickjava_pref_reload_java"                    name="thatoneguydotnet.QuickJava.reload.Java"              type="bool"/>
       <preference id="thatoneguydotnet_quickjava_pref_reload_flash"                   name="thatoneguydotnet.QuickJava.reload.Flash"             type="bool"/>
       <preference id="thatoneguydotnet_quickjava_pref_reload_silverlight"             name="thatoneguydotnet.QuickJava.reload.Silverlight"       type="bool"/>
@@ -81,6 +85,7 @@
               <row>
                 <label    value=""                                                            id="prompt_lbl" />
                 <label    value="&quickjava.javascript;"                                      id="prompt_javascript_lbl" />
+                <label    value="&quickjava.webgl;"                                           id="prompt_webgl_lbl" />
                 <label    value="&quickjava.cookies;"                                         id="prompt_cookies_lbl" />
                 <label    value="&quickjava.java;"                                            id="prompt_java_lbl" />
                 <label    value="&quickjava.flash;"                                           id="prompt_flash_lbl" />
@@ -93,6 +98,7 @@
               <row>
                 <label    value="&quickjava.options.hidestatusprompt;"                        id="hidestatus_prompt_lbl" />
                 <checkbox preference="thatoneguydotnet_quickjava_pref_hidestatus_javascript"  id="hidestatus_javascript_cb" />
+                <checkbox preference="thatoneguydotnet_quickjava_pref_hidestatus_webgl"       id="hidestatus_webgl_cb" />
                 <checkbox preference="thatoneguydotnet_quickjava_pref_hidestatus_cookies"     id="hidestatus_cookies_cb" />
                 <checkbox preference="thatoneguydotnet_quickjava_pref_hidestatus_java"        id="hidestatus_java_cb" />
                 <checkbox preference="thatoneguydotnet_quickjava_pref_hidestatus_flash"       id="hidestatus_flash_cb" />
@@ -105,6 +111,7 @@
               <row>
                 <label    value="&quickjava.options.favoritesprompt;"                        id="favorites_prompt_lbl" />
                 <checkbox preference="thatoneguydotnet_quickjava_pref_favorites_javascript"  id="favorites_javascript_cb" />
+                <checkbox preference="thatoneguydotnet_quickjava_pref_favorites_webgl"       id="favorites_webgl_cb" />
                 <checkbox preference="thatoneguydotnet_quickjava_pref_favorites_cookies"     id="favorites_cookies_cb" />
                 <checkbox preference="thatoneguydotnet_quickjava_pref_favorites_java"        id="favorites_java_cb" />
                 <checkbox preference="thatoneguydotnet_quickjava_pref_favorites_flash"       id="favorites_flash_cb" />
@@ -117,6 +124,7 @@
               <row>
                 <label    value="&quickjava.options.reloadprompt;"                        id="reload_prompt_lbl" />
                 <checkbox preference="thatoneguydotnet_quickjava_pref_reload_javascript"  id="reload_javascript_cb" />
+                <checkbox preference="thatoneguydotnet_quickjava_pref_reload_webgl"       id="reload_webgl_cb" />
                 <checkbox preference="thatoneguydotnet_quickjava_pref_reload_cookies"     id="reload_cookies_cb" />
                 <checkbox preference="thatoneguydotnet_quickjava_pref_reload_java"        id="reload_java_cb" />
                 <checkbox preference="thatoneguydotnet_quickjava_pref_reload_flash"       id="reload_flash_cb" />
@@ -138,6 +146,13 @@
                   </menulist>
                 </hbox>
                 <menulist preference="thatoneguydotnet_quickjava_pref_startupStatus_javascript"     id="startupStatus_javascript_cb">
+                  <menupopup>
+                    <menuitem label="&quickjava.options.nochange;" value="0" />
+                    <menuitem label="&quickjava.options.on;" value="1" />
+                    <menuitem label="&quickjava.options.off;" value="2" />
+                  </menupopup>
+                </menulist>
+                <menulist preference="thatoneguydotnet_quickjava_pref_startupStatus_webgl"       id="startupStatus_webgl_cb">
                   <menupopup>
                     <menuitem label="&quickjava.options.nochange;" value="0" />
                     <menuitem label="&quickjava.options.on;" value="1" />

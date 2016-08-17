@@ -2,6 +2,7 @@ pref("thatoneguydotnet.QuickJava.curVersion",               '');
 
 /* which icons are hidden in status/addon bar */
 pref("thatoneguydotnet.QuickJava.hidestatus.JavaScript",    false);
+pref("thatoneguydotnet.QuickJava.hidestatus.WebGL",         false);
 pref("thatoneguydotnet.QuickJava.hidestatus.Java",          false);
 pref("thatoneguydotnet.QuickJava.hidestatus.Flash",         false);
 pref("thatoneguydotnet.QuickJava.hidestatus.Silverlight",   false);
@@ -16,6 +17,7 @@ pref("thatoneguydotnet.QuickJava.startupStatus.type",          0);
 
 /* 0 = no change, 1 = enabled, 2 = disabled */
 pref("thatoneguydotnet.QuickJava.startupStatus.JavaScript",    0);
+pref("thatoneguydotnet.QuickJava.startupStatus.WebGL",         0);
 pref("thatoneguydotnet.QuickJava.startupStatus.Java",          0);
 pref("thatoneguydotnet.QuickJava.startupStatus.Flash",         0);
 pref("thatoneguydotnet.QuickJava.startupStatus.Silverlight",   0);
@@ -27,6 +29,7 @@ pref("thatoneguydotnet.QuickJava.startupStatus.Proxy",         0);
 
 /* which icons are visible in the favorites menu button */
 pref("thatoneguydotnet.QuickJava.favorites.JavaScript",     true);
+pref("thatoneguydotnet.QuickJava.favorites.WebGL",          true);
 pref("thatoneguydotnet.QuickJava.favorites.Java",           true);
 pref("thatoneguydotnet.QuickJava.favorites.Flash",          true);
 pref("thatoneguydotnet.QuickJava.favorites.Silverlight",    false);
@@ -42,6 +45,7 @@ pref("thatoneguydotnet.QuickJava.favorites.differentToggle",          0);
 
 /* which icons cause a reload of the page when they are changed */
 pref("thatoneguydotnet.QuickJava.reload.JavaScript",        false);
+pref("thatoneguydotnet.QuickJava.reload.WebGL",             false);
 pref("thatoneguydotnet.QuickJava.reload.Java",              false);
 pref("thatoneguydotnet.QuickJava.reload.Flash",             false);
 pref("thatoneguydotnet.QuickJava.reload.Silverlight",       false);
