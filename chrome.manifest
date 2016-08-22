@@ -7,3 +7,4 @@ style	chrome://browser/content/browser.xul	chrome://quickjava/skin/quickjava.css
 style	chrome://global/content/customizeToolbar.xul	chrome://quickjava/skin/quickjava.css
 locale     quickjava   en-US   locale/en-US/
 locale     quickjava   es      locale/es/
+locale     quickjava   jp      locale/jp/

@@ -1,0 +1,66 @@
+<!ENTITY quickjava.javascript "Javascript">
+<!ENTITY quickjava.java "Java">
+<!ENTITY quickjava.flash "Flash">
+<!ENTITY quickjava.webgl                    "WebGL">
+<!ENTITY quickjava.webrtc                   "WebRTC">
+<!ENTITY quickjava.silverlight "SilverLight">
+<!ENTITY quickjava.animage "Animated Images">
+<!ENTITY quickjava.cookies "Cookies">
+<!ENTITY quickjava.images "Images">
+<!ENTITY quickjava.css "Style">
+<!ENTITY quickjava.proxy "Proxy">
+
+<!ENTITY quickjava.favorites "お気に入り">
+
+<!ENTITY quickjava.tooltip.javascript "有効/無効 Javascript">
+<!ENTITY quickjava.tooltip.java "有効/無効 Java">
+<!ENTITY quickjava.tooltip.flash "有効/無効 Flash">
+<!ENTITY quickjava.tooltip.webgl "有効/無効 WebGL">
+<!ENTITY quickjava.tooltip.webrtc "有効/無効 WebRTC">
+<!ENTITY quickjava.tooltip.silverlight "有効/無効 SilverLight">
+<!ENTITY quickjava.tooltip.animage "有効/無効 Animated Images">
+<!ENTITY quickjava.tooltip.cookies "有効/無効 Cookies">
+<!ENTITY quickjava.tooltip.images "有効/無効 Automatic Image Loading">
+<!ENTITY quickjava.tooltip.css "Toggle Style">
+<!ENTITY quickjava.tooltip.proxy "Toggle Proxy">
+<!ENTITY quickjava.tooltip.favorites "Toggle お気に入り">
+
+<!ENTITY quickjava.context.refresh "全てを無効化">
+<!ENTITY quickjava.context.options "Options">
+
+<!ENTITY quickjava.options.title "QuickJava Options">
+<!ENTITY quickjava.options.advancedsettings "Plugin の正規表現を使用した高度な設定">
+<!ENTITY quickjava.options.colorsettings "その他">
+<!ENTITY quickjava.options.mainoptions "主要な設定">
+<!ENTITY quickjava.options.hidestatusprompt "アドオンバーの icon を非表示">
+<!ENTITY quickjava.options.favoritesprompt "お気に入りに追加">
+<!ENTITY quickjava.options.reloadprompt "変更時に再読み込み">
+<!ENTITY quickjava.options.startupStatusprompt "On">
+<!ENTITY quickjava.options.startupinitialload "（再）起動時に適用">
+<!ENTITY quickjava.options.startupnewwindow "新規の Window で適用">
+<!ENTITY quickjava.options.startupnewtab "新規の Tab で適用">
+
+<!ENTITY quickjava.options.nochange "">
+<!ENTITY quickjava.options.on "On">
+<!ENTITY quickjava.options.off "Off">
+
+<!ENTITY quickjava.options.favoritesdifferentprompt1 "お気に入りが異なる状態の場合, 表示 ">
+<!ENTITY quickjava.options.favoritesdifferentprompt2 "ボタンを押した場合のお気に入り ">
+
+<!ENTITY quickjava.options.actions.reload "変更時に再読み込み">
+
+<!ENTITY quickjava.options.links.header "Quickjava Links">
+<!ENTITY quickjava.options.links.help "解説とHelp">
+<!ENTITY quickjava.options.links.home "Support Website">
+<!ENTITY quickjava.options.links.donate "寄付">
+
+<!ENTITY quickjava.options.custombuttonstyles "Custom Button Styles">
+<!ENTITY quickjava.options.custombuttondefault "規定">
+<!ENTITY quickjava.options.custombuttonenabled "有効">
+<!ENTITY quickjava.options.custombuttonexample "記述例:">
+
+<!ENTITY quickjava.reset "初期化">
+<!ENTITY quickjava.options.betasettings "In Beta Options">
+
+<!ENTITY quickjava.options.favorites.differentprompt "お気に入りの状態が 有効/無効 と異なる場合 ,  [有効/無効]をボタンに表示">
+<!ENTITY quickjava.options.favorites.differentprompt2 "そして、トグルでのお気に入り設定 [有効/無効]">

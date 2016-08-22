@@ -6,7 +6,7 @@
 <overlay id="quickjava-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   
   <script type="application/x-javascript" src="chrome://quickjava/content/browserOverlay.js"/>
-  
+
   <stringbundleset id="stringbundleset">
     <stringbundle id="quickjava-strings" src="chrome://quickjava/locale/quickjava.properties"/>
   </stringbundleset>
@@ -53,6 +53,16 @@
       </hbox>
     </statusbarpanel>
 
+    <statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_WebRTC" tooltip="QuickJava_status_tip_WebRTC" onclick="thatoneguydotnet.QuickJava.onClick(event);">
+      <hbox>
+        <vbox>
+          <spacer flex="1" />
+          <label id="QuickJava_StatusIcon_WebRTC" class="quickjava-button" value="RTC"/>
+          <spacer flex="1" />
+        </vbox>
+      </hbox>
+    </statusbarpanel>
+
     <statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_Silverlight" tooltip="QuickJava_status_tip_Silverlight" onclick="thatoneguydotnet.QuickJava.onClick(event);">
       <hbox>
         <vbox>
@@ -62,7 +72,7 @@
         </vbox>
       </hbox>
     </statusbarpanel>
-    
+
     <statusbarpanel context="quickjava_contextmenu" class="statusbarpanel-iconic-text QuickJava_StatusIcon_Container" id="QuickJava_StatusIcon_Container_Cookies" tooltip="QuickJava_status_tip_Cookies" onclick="thatoneguydotnet.QuickJava.onClick(event);">
       <hbox>
         <vbox>
@@ -131,14 +141,19 @@
       oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.flash;" context="quickjava_contextmenu" >
       <label id="QuickJava_ToolbarIcon_Flash" class="quickjava-button" value="F" />
     </toolbarbutton>
-    
-    <toolbarbutton id="QuickJava_ToolbarIcon_Container_Silverlight" label="&quickjava.silverlight;"
-      oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.silverlight;" context="quickjava_contextmenu" >
-      <label id="QuickJava_ToolbarIcon_Silverlight" class="quickjava-button" value="SL" />
+
+    <toolbarbutton id="QuickJava_ToolbarIcon_Container_WebGL" label="&quickjava.webgl;"
+      oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.webgl;" context="quickjava_contextmenu" >
+      <label id="QuickJava_ToolbarIcon_WebGL" class="quickjava-button" value="GL" />
     </toolbarbutton>
 
-    <toolbarbutton id="QuickJava_ToolbarIcon_Container_Silverlight" label="&quickjava.webgl;"
-      oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.webgl;" context="quickjava_contextmenu" >
+    <toolbarbutton id="QuickJava_ToolbarIcon_Container_WebRTC" label="&quickjava.webrtc;"
+      oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.webrtc;" context="quickjava_contextmenu" >
+      <label id="QuickJava_ToolbarIcon_WebRTC" class="quickjava-button" value="RTC" />
+    </toolbarbutton>
+
+    <toolbarbutton id="QuickJava_ToolbarIcon_Container_Silverlight" label="&quickjava.silverlight;"
+      oncommand="thatoneguydotnet.QuickJava.onCommand(event);" tooltiptext="&quickjava.tooltip.silverlight;" context="quickjava_contextmenu" >
       <label id="QuickJava_ToolbarIcon_Silverlight" class="quickjava-button" value="SL" />
     </toolbarbutton>
 
@@ -180,8 +195,9 @@
            <menuitem label="JS" value="JS" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_JavaScript" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
            <menuitem label="J" value="J" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Java" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
            <menuitem label="F" value="F" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Flash" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
-           <menuitem label="SL" value="SL" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Silverlight" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
            <menuitem label="GL" value="WebGL" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_WebGL" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+           <menuitem label="RTC" value="WebRTC" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_WebRTC" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
+           <menuitem label="SL" value="SL" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Silverlight" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
            <menuitem label="A" value="A" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_AnimatedImage" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
            <menuitem label="C" value="C" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Cookies" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
            <menuitem label="I" value="I" id="QuickJava_ToolbarIcon_Container_Favorites_Menu_Images" type="checkbox" oncommand="thatoneguydotnet.QuickJava.onCommand(event);" />
@@ -211,19 +227,25 @@
         <description value="&quickjava.tooltip.flash;" id="QuickJava_status_tip_desc_Flash"/>
       </hbox>
     </tooltip>
-    
-    <tooltip id="QuickJava_status_tip_Silverlight" noautohide="true" orient="horizontal">
-      <hbox>
-        <description value="&quickjava.tooltip.silverlight;" id="QuickJava_status_tip_desc_Silverlight"/>
-      </hbox>
-    </tooltip>
 
     <tooltip id="QuickJava_status_tip_WebGL" noautohide="true" orient="horizontal">
       <hbox>
         <description value="&quickjava.tooltip.webgl;" id="QuickJava_status_tip_desc_WebGL"/>
       </hbox>
     </tooltip>
-    
+
+    <tooltip id="QuickJava_status_tip_WebRTC" noautohide="true" orient="horizontal">
+      <hbox>
+        <description value="&quickjava.tooltip.webrtc;" id="QuickJava_status_tip_desc_WebRTC"/>
+      </hbox>
+    </tooltip>
+
+    <tooltip id="QuickJava_status_tip_Silverlight" noautohide="true" orient="horizontal">
+      <hbox>
+        <description value="&quickjava.tooltip.silverlight;" id="QuickJava_status_tip_desc_Silverlight"/>
+      </hbox>
+    </tooltip>
+
     <tooltip id="QuickJava_status_tip_AnimatedImage" noautohide="true" orient="horizontal">
       <hbox>
         <description value="&quickjava.tooltip.animage;" id="QuickJava_status_tip_desc_AnimatedImage"/>

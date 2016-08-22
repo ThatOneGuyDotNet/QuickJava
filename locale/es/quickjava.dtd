@@ -2,6 +2,7 @@
 <!ENTITY quickjava.java                     "Java">
 <!ENTITY quickjava.flash                    "Flash">
 <!ENTITY quickjava.webgl                    "WebGL">
+<!ENTITY quickjava.webrtc                   "WebRTC">
 <!ENTITY quickjava.silverlight              "SilverLight">
 <!ENTITY quickjava.animage                  "Imágenes animadas">
 <!ENTITY quickjava.cookies                  "Cookies">
@@ -15,6 +16,7 @@
 <!ENTITY quickjava.tooltip.java           "Habilita/Deshabilita Java">
 <!ENTITY quickjava.tooltip.flash          "Habilita/Deshabilita Flash">
 <!ENTITY quickjava.tooltip.webgl          "Habilita/Deshabilita WebGL">
+<!ENTITY quickjava.tooltip.webrtc         "Habilita/Deshabilita WebRTC">
 <!ENTITY quickjava.tooltip.silverlight    "Habilita/Deshabilita SilverLight">
 <!ENTITY quickjava.tooltip.animage        "Habilita/Deshabilita imágenes animadas">
 <!ENTITY quickjava.tooltip.cookies        "Habilita/Deshabilita cookies">
