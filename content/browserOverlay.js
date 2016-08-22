@@ -46,11 +46,14 @@ initQJ: function()
       this.qj_Fav                 = 'Favorites';
       this.qj_Fav_Different       = this.qj_Fav + '_Different';
   },
+
 onLoad: function(evt)
   {
     if (typeof(Ci) == 'undefined') { return false; } //This is not a normal window (example: options dialog)
     this.alertPluginNames               = false;
     this.alertPluginNamesOnMatch        = false;
+    this.firstInstallUrl                = 'http://quickjavaplugin.blogspot.com/p/welcome.html';
+    this.newVersionUrl                  = 'http://quickjavaplugin.blogspot.com/2016/08/new-version-210.html';
 
     this.curVersion                     = ''; //do not initialize, automatically loaded
     this.massToggle                     = false; //program use, do not initialize to true
