@@ -7,7 +7,7 @@
 //License: https://www.mozilla.org/en-US/MPL/1.1/
 //
 //Version History
-//Version 2.1.0 Add WebGL and WebRTC support. Move preferences to extensions branch. Fix CSS toggle bugs. Fix Options 'Reset' buttons bug. Fix install/new version popup. Add jp locale (thanks to Hideki!) Also thanks to Gitoffthelawn, Compyooter, staudenmeir, and jimbo1qaz for bug reports and communication.
+//Version 2.1.0 Add WebGL (thanks ccrtnsp) and WebRTC support. Move preferences to extensions branch. Fix CSS toggle bugs. Fix Options 'Reset' buttons bug. Fix install/new version popup. Add jp locale (thanks to Hideki!) Also thanks to Gitoffthelawn, Compyooter, staudenmeir, and jimbo1qaz for bug reports and communication.
 //Version 2.0.8 Add error handling due to CSS method sometimes throwing an exception, have not figured out what causes this yet
 //Version 2.0.7 Changed how the stylesheets are being read due to change in FF44
 //Version 2.0.6 Fixed a bug when customizing some toolbars, thanks to Quicksaver (the developer of the Puzzle Toolbar addon) for the code
