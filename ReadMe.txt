@@ -1,3 +1,11 @@
+This plugin is Obsolete as of FF 57.
+
+For additional information please visit:
+http://quickjavaplugin.blogspot.com/2017/10/quickjava-to-be-obsolete-with-firefox.html
+
+
+Old Notes:
+
 //QuickJava
 //By Doug G.
 //
